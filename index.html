@@ -110,18 +110,6 @@ h2.big{font-size:clamp(1.9rem,4.8vw,3.2rem);letter-spacing:-.028em;max-width:24c
 .pitch p{margin:0;font-size:.94rem;color:var(--basalt-soft)}
 .who{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lava);display:block;margin-bottom:15px}
 
-/* strip gallery */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:64px}
-.strip figure{margin:0;position:relative;overflow:hidden}
-.strip img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--glacier-deep);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
-.strip figure:hover img{transform:scale(1.05)}
-.strip figcaption{
-  position:absolute;left:0;right:0;bottom:0;padding:14px;
-  background:linear-gradient(0deg,rgba(23,27,31,.85),transparent);
-  color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;
-  letter-spacing:.12em;text-transform:uppercase;
-}
-
 /* aurora */
 .aurora{background:var(--basalt);color:var(--glacier)}
 .aurora h2{color:#fff}
@@ -156,10 +144,13 @@ h2.big{font-size:clamp(1.9rem,4.8vw,3.2rem);letter-spacing:-.028em;max-width:24c
 .route{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--moss);margin:15px 0 22px;line-height:2}
 .rd{display:inline-block;background:var(--basalt);color:#fff;padding:1px 6px;border-radius:2px;margin:0 3px;font-size:10.5px}
 .day p{margin:0 0 16px;max-width:66ch}
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:12px;margin:28px 0}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:26px 0}
+@media(max-width:560px){.shots{grid-template-columns:repeat(2,1fr)}}
 .shots figure{margin:0}
-.shots img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--glacier-deep)}
-.shots figcaption{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;color:var(--basalt-soft);margin-top:7px;text-transform:uppercase}
+.shots img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--glacier-deep);transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.shots figure:hover img{transform:scale(1.06)}
+.shots figure{overflow:hidden}
+.shots figcaption{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.05em;color:var(--basalt-soft);margin-top:6px;text-transform:uppercase;line-height:1.4}
 .stops{list-style:none;padding:0;margin:22px 0 0}
 .stops li{padding:12px 0;border-top:1px dashed var(--hair);display:grid;grid-template-columns:135px 1fr;gap:16px;font-size:.95rem}
 .stops li b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ice);font-weight:500;padding-top:3px}
@@ -171,6 +162,65 @@ h2.big{font-size:clamp(1.9rem,4.8vw,3.2rem);letter-spacing:-.028em;max-width:24c
 .warn{margin:26px 0;padding:22px 24px;background:#fff;border-left:3px solid var(--lava);font-size:.94rem}
 .warn b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lava);margin-bottom:9px}
 .warn p{margin:0 0 10px}.warn p:last-child{margin:0}
+
+/* Robben-Highlight */
+.seals{margin:30px 0;padding:0;border:2px solid var(--moss);background:#fff;overflow:hidden}
+.seals .top{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--moss)}
+.seals .top img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--glacier-deep)}
+.seals .txt{padding:22px 24px}
+.seals h4{font-size:1.3rem;margin-bottom:4px}
+.seals .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--moss);margin-bottom:12px}
+.seals p{margin:0 0 12px;font-size:.95rem}
+.seals p:last-child{margin:0}
+.seals .rule{margin-top:16px;padding:13px 16px;background:var(--glacier);font-size:.89rem}
+.seals .rule b{color:var(--moss)}
+@media(max-width:560px){.seals .top{grid-template-columns:1fr}}
+
+/* Hot Pots */
+.hotpots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:48px}
+.hp{border:1px solid var(--hair);background:#fff;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:border-color .25s,transform .25s}
+.hp:hover{border-color:var(--lava);transform:translateY(-3px)}
+.hp .steam{height:82px;position:relative;overflow:hidden;background:var(--basalt)}
+.hp .steam.panel{display:flex;flex-direction:column;align-items:center;justify-content:center;border-bottom:2px solid var(--ice)}
+.hp .steam.panel.hot{border-bottom-color:var(--lava)}
+.hp .steam.panel b{font-family:'Fraunces',serif;font-size:1.8rem;line-height:1;color:#fff;font-weight:600;font-variation-settings:'SOFT' 0,'WONK' 1}
+.hp .steam.panel i{font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--glacier-bright);margin-top:6px}
+.hp .steam.panel.hot i{color:#E8927F}
+.hp .steam img{width:100%;height:100%;object-fit:cover;display:block}
+.hp .in{padding:17px 18px 19px}
+.hp .n{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ice);display:block;margin-bottom:7px}
+.hp h4{font-size:1.06rem;margin-bottom:7px}
+.hp p{margin:0;font-size:.85rem;color:var(--basalt-soft);line-height:1.5}
+.hp .go{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lava);margin-top:12px;display:block}
+
+/* Tabs */
+.tabs{display:flex;gap:0;margin-top:40px;border-bottom:1px solid var(--hair)}
+.tabs button{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  background:none;border:none;border-bottom:2px solid transparent;padding:13px 20px;cursor:pointer;
+  color:var(--basalt-soft);
+}
+.tabs button[aria-selected="true"]{color:var(--lava);border-color:var(--lava)}
+.panel[hidden]{display:none}
+.panel{padding-top:32px}
+
+/* Karte */
+#map{height:min(72vh,640px);width:100%;background:var(--glacier-deep);border:1px solid var(--hair)}
+.legend{display:flex;flex-wrap:wrap;gap:22px;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--basalt-soft)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:-1px;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.pin-lava{background:#B32B1A}.pin-ice{background:#3C7E9E}.pin-line{border-radius:0;height:3px;width:22px;background:#4A5257;box-shadow:none;border:none}
+.leaflet-popup-content{font-family:'Karla',sans-serif;font-size:13px;line-height:1.5}
+.leaflet-popup-content b{font-family:'Fraunces',serif;font-size:15px;display:block;margin-bottom:3px}
+.leaflet-popup-content em{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:#3C7E9E;display:block;margin-bottom:5px}
+
+/* Linkliste */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:34px}
+.lgroup h4{font-size:1.1rem;margin-bottom:13px;padding-bottom:9px;border-bottom:2px solid var(--basalt)}
+.lgroup ul{list-style:none;margin:0;padding:0}
+.lgroup li{border-bottom:1px dashed var(--hair)}
+.lgroup a{display:block;padding:11px 0;text-decoration:none;color:var(--basalt);font-size:.93rem}
+.lgroup a:hover{color:var(--lava)}
+.lgroup a span{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:var(--ice);margin-top:3px}
 
 /* practical */
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:40px;margin-top:50px}
@@ -208,6 +258,7 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
 }
 :focus-visible{outline:2px solid var(--lava);outline-offset:3px}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
 <div id="bar"></div>
@@ -219,6 +270,7 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <li><a href="#warum">Warum</a></li>
       <li><a href="#polarlicht">Polarlicht</a></li>
       <li><a href="#route">Route</a></li>
+      <li><a href="#karte">Karte &amp; Links</a></li>
       <li><a href="#praktisch">Praktisch</a></li>
     </ul>
   </div>
@@ -229,11 +281,11 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
   <div class="hero-in wrap">
     <div class="eyebrow">Osterferien 2027 · Karfreitag 26. März – Samstag 3. April</div>
     <h1>Island.<br><em>Neun Tage</em><br><span class="fire">Feuer</span> und <span class="iceword">Eis</span>.</h1>
-    <p class="hero-sub">Ein Wasserfall, hinter dem man durchlaufen kann. Ein Strand aus schwarzem Sand, auf dem Eisberge liegen. Eine Höhle im Gletscher. Fünfmal heißes Wasser bei zwei Grad Außentemperatur. Und wenn wir Glück haben: grünes Licht am Himmel.</p>
+    <p class="hero-sub">Ein Wasserfall, hinter dem man durchlaufen kann. Ein Strand aus schwarzem Sand, auf dem Eisberge liegen. Eine Höhle im Gletscher. Viermal heißes Wasser bei zwei Grad Außentemperatur. Und wenn wir Glück haben: grünes Licht am Himmel.</p>
     <div class="hero-meta">
       <div><span>Route</span><strong>Snæfellsnes · Golden Circle · Südküste</strong></div>
       <div><span>Fahren pro Tag</span><strong class="mono">ø 2 h 40</strong></div>
-      <div><span>Hot Pots</span><strong class="mono">5</strong></div>
+      <div><span>Hot Pots</span><strong class="mono">4</strong></div>
       <div><span>Wasserfälle</span><strong class="mono">8</strong></div>
     </div>
   </div>
@@ -253,8 +305,8 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
     </div>
     <div>
       <span class="who">Für Alva und Flora</span>
-      <h4>Fünf Hot Pots</h4>
-      <p>Blue Lagoon direkt nach der Landung. Krauma an Europas ergiebigster Heißwasserquelle. Secret Lagoon in Flúðir, wo es aus dem Boden blubbert. Ein Dorfschwimmbad. Und Sky Lagoon am Abflugtag.</p>
+      <h4>Vier Hot Pots</h4>
+      <p>Blue Lagoon direkt nach der Landung. Krauma an Europas ergiebigster Heißwasserquelle. Secret Lagoon in Flúðir, wo es aus dem Boden blubbert. Und Reykjaböð im Reykjadalur am Abflugtag.</p>
     </div>
     <div>
       <span class="who">Für alle vier</span>
@@ -267,11 +319,29 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <p>Die Saison läuft bis Anfang April. Unsere Woche liegt bei abnehmendem Mond, die Nächte werden von Tag zu Tag dunkler. Kein Versprechen — aber eine echte Chance, und die besten Nächte kommen zum Schluss.</p>
     </div>
   </div>
-  <div class="strip reveal">
-    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_beach_iceland_.jpg?width=800" alt="Gletschereis auf schwarzem Sand"><figcaption>Diamond Beach</figcaption></figure>
-    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_winter.jpg?width=800" alt="Skógafoss im Winter"><figcaption>Skógafoss</figcaption></figure>
-    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Strokkur_geyser_eruption,_close-up_view.jpg?width=800" alt="Ausbruch des Geysirs Strokkur"><figcaption>Strokkur</figcaption></figure>
-    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kirkjufell,_Iceland_(Unsplash_LoKG7kKx7Zc).jpg?width=800" alt="Berg Kirkjufell"><figcaption>Kirkjufell</figcaption></figure>
+  <div class="reveal" style="margin-top:76px">
+    <div class="sec-label">Viermal heißes Wasser</div>
+    <h2 class="big" style="font-size:clamp(1.7rem,4vw,2.5rem)">Die Lagunen und Hot Pots</h2>
+    <p style="margin-top:18px;max-width:62ch;color:var(--basalt-soft)">Baden gehört in Island zum Alltag, nicht zum Luxus. Die vier Bäder liegen so auf der Route, dass die Reise mit heißem Wasser beginnt und endet. Jede Karte führt direkt zur offiziellen Seite.</p>
+    <div class="hotpots">
+      <a class="hp" href="https://www.bluelagoon.com/" target="_blank" rel="noopener">
+        <div class="steam"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_Blue_Lagoon.jpg?width=600" alt="Blue Lagoon im Lavafeld" loading="lazy"></div>
+        <div class="in"><span class="n">Tag 1 · Fr 26.3.</span><h4>Blue Lagoon</h4><p>Milchig-türkis, 38 °C, mitten im schwarzen Lavafeld. Zwanzig Minuten vom Flughafen — der beste Start gegen Flugmüdigkeit.</p><span class="go">bluelagoon.com &rarr;</span></div>
+      </a>
+      <a class="hp" href="https://www.krauma.is/en" target="_blank" rel="noopener">
+        <div class="steam panel"><b>36–40</b><i>°C · sechs Becken</i></div>
+        <div class="in"><span class="n">Tag 3 · So 28.3.</span><h4>Krauma</h4><p>Fünf warme Becken und ein Kaltbecken mit 5 °C. Das 100 °C heiße Quellwasser aus Deildartunguhver wird mit Gletscherwasser gemischt, ganz ohne Chemie. Täglich 11–21 Uhr.</p><span class="go">krauma.is &rarr;</span></div>
+      </a>
+      <a class="hp" href="https://secretlagoon.is/booking/" target="_blank" rel="noopener">
+        <div class="steam panel"><b>1891</b><i>Islands ältestes Bad</i></div>
+        <div class="in"><span class="n">Tag 4 · Mo 29.3.</span><h4>Secret Lagoon</h4><p>Klein und ursprünglich, rundherum blubbert es aus dem Boden. In der Polarlichtsaison schließt es um 20 Uhr — Nordlichter schaut man von hier also nicht.</p><span class="go">secretlagoon.is &rarr;</span></div>
+      </a>
+      <a class="hp" href="https://reykjabod.is" target="_blank" rel="noopener">
+        <div class="steam panel hot"><b>NEU</b><i>eröffnet Aug. 2026</i></div>
+        <div class="in"><span class="n">Tag 9 · Sa 3.4.</span><h4>Reykjaböð</h4><p>Neue Quellen im Reykjadalur bei Hveragerði: natürliche Becken, Kneipp-Becken, Event-Sauna, dazu ein Bathhouse mit zehn Sinnesräumen. Liegt auf dem Weg zum Flughafen.</p><span class="go">reykjabod.is &rarr;</span></div>
+      </a>
+    </div>
+    <p style="margin-top:22px;font-size:.86rem;color:var(--basalt-soft)">Vor jedem Bad gilt dieselbe Regel wie im ganzen Land: <strong>vorher komplett duschen, ohne Badesachen.</strong> Das nimmt man in Island sehr ernst. Reykjaböð eröffnet erst im August 2026 — bis zur Reise ist es eingespielt, aber Preise und Öffnungszeiten kurz vorher prüfen.</p>
   </div>
 </section>
 
@@ -297,7 +367,7 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
     <div class="honest">
       <b>Und wenn nicht?</b>
       <p>Polarlichter sind Wetter, kein Programmpunkt. Man braucht Sonnenaktivität, einen wolkenfreien Himmel und einen dunklen Mond — alles drei gleichzeitig, und keins davon lässt sich buchen. Es gibt Familien, die zwei Wochen in Island waren und nichts gesehen haben.</p>
-      <p>Wir stellen uns also darauf ein, dass es klappen <em>kann</em>. Und wir haben eine Reise geplant, die auch ohne grünen Himmel großartig ist: die Gletscherhöhle, der Strand mit den Eisbergen, acht Wasserfälle und fünfmal heißes Wasser passieren so oder so.</p>
+      <p>Wir stellen uns also darauf ein, dass es klappen <em>kann</em>. Und wir haben eine Reise geplant, die auch ohne grünen Himmel großartig ist: die Gletscherhöhle, der Strand mit den Eisbergen, acht Wasserfälle und viermal heißes Wasser passieren so oder so.</p>
     </div>
   </div>
 </section>
@@ -343,8 +413,9 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <div class="route">KEF <span class="rd">43</span> Blue Lagoon <span class="rd">41</span> <span class="rd">1</span> Borgarnes</div>
       <p>Der beste Trick gegen Flugmüdigkeit: nicht ins Hotel, sondern ins Wasser. Die Blue Lagoon liegt zwanzig Minuten vom Flughafen — milchig-türkis, 38 Grad, mitten in einem schwarzen Lavafeld. Danach durch den Hvalfjörður-Tunnel nach Borgarnes, damit wir die erste Nacht schon draußen im Land verbringen.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_Blue_Lagoon.jpg?width=900" alt="Blue Lagoon im Lavafeld" loading="lazy"><figcaption>Blue Lagoon · Grindavík</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Winter_Roads_in_Iceland_(Unsplash).jpg?width=900" alt="Winterstraße in Island" loading="lazy"><figcaption>Ringstraße im März</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_Blue_Lagoon.jpg?width=640" alt="Blue Lagoon im Lavafeld" loading="lazy"><figcaption>Blue Lagoon</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Winter_Roads_in_Iceland_(Unsplash).jpg?width=640" alt="Winterstraße in Island" loading="lazy"><figcaption>Ringstraße im März</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wild_Iceland_(Unsplash).jpg?width=640" alt="Isländische Küste" loading="lazy"><figcaption>Küste bei Borgarnes</figcaption></figure>
       </div>
       <ul class="stops">
         <li><b>Tickets</b>Blue Lagoon nur mit Vorbuchung, Zeitfenster sind begrenzt. Handtuch ist im Comfort-Paket enthalten.</li>
@@ -361,10 +432,24 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <h3>Snæfellsnes, Südseite — Robben, Lavatore, schwarzer Sand</h3>
       <div class="route">Borgarnes <span class="rd">54</span> Ytri Tunga <span class="rd">54</span> Búðakirkja <span class="rd">574</span> Arnarstapi <span class="rd">574</span> Djúpalónssandur <span class="rd">574</span> Hellissandur</div>
       <p>Die Halbinsel heißt „Island in Miniatur": Gletscher, Vulkankrater, Basaltsäulen, Robben und schwarze Strände auf einer Strecke. Bei <strong>Ytri Tunga</strong> liegen fast immer Seehunde auf den Felsen. <strong>Búðakirkja</strong> ist eine winzige, komplett schwarz geteerte Holzkirche allein im Lavafeld. Bei <strong>Arnarstapi</strong> hat das Meer Felsentore und Klippen aus der Küste geschnitten.</p>
+      <div class="seals">
+        <div class="top">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Harbor_seals,_Ytri_Tunga_Beach,_Iceland,_20240714_1217_0999.jpg?width=800" alt="Seehunde am Strand von Ytri Tunga" loading="lazy">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Harbor_seals,_Ytri_Tunga_Beach,_Iceland,_20240714_1218_1015.jpg?width=800" alt="Seehund auf einem Felsen" loading="lazy">
+        </div>
+        <div class="txt">
+          <div class="lbl">Ytri Tunga · echte Chance</div>
+          <h4>Hier liegen Seehunde. Das ganze Jahr über.</h4>
+          <p>Ytri Tunga ist Islands bekannteste Seehundkolonie und einer der wenigen Orte im Land, wo man die Tiere ohne Boot und ohne Glück sehen kann: Sie ruhen auf den Felsen direkt am Strand und schwimmen dicht vor der Küste — <strong>ganzjährig</strong>, also auch Ende März.</p>
+          <p>Der Strand ist außerdem ungewöhnlich für Island: heller, goldener Sand statt schwarzer Lava. Ein Fernglas mitnehmen, dann sieht man auch die Köpfe, die draußen aus dem Wasser schauen.</p>
+          <div class="rule"><b>Regeln:</b> mindestens 50 Meter Abstand halten, bei Jungtieren 100 Meter. Ruhig und leise bleiben, nie zwischen ein Tier und das Wasser gehen, Jungtiere niemals annähern.</div>
+        </div>
+      </div>
       <p><strong>Djúpalónssandur</strong> ist der schwarze Strand für Alva und Flora. Dort liegen noch die rostigen Trümmer des britischen Trawlers <em>Epine GY7</em>, der 1948 auf Grund lief und heute als Denkmal liegen bleibt. Und vier alte Kraftsteine der Fischer: der leichteste heißt <em>Amlóði</em>, „Schwächling", 23 Kilo — der schwerste <em>Fullsterkur</em>, „Vollstark", 154 Kilo. Wer damals aufs Boot wollte, musste mindestens den dritten heben.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wild_Iceland_(Unsplash).jpg?width=900" alt="Küste auf Snæfellsnes" loading="lazy"><figcaption>Snæfellsnes-Küste</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_horse.jpg?width=900" alt="Islandpferd" loading="lazy"><figcaption>Islandpferde am Weg</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Black_B%C3%BA%C3%B0ir_Church,_(B%C3%BA%C3%B0akirkja).jpg?width=640" alt="Schwarze Holzkirche Búðakirkja" loading="lazy"><figcaption>Búðakirkja · schwarze Kirche</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Arnarstapi_(4).jpg?width=640" alt="Steilküste bei Arnarstapi" loading="lazy"><figcaption>Arnarstapi · Felsentore</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dj%C3%BApal%C3%B3nssandur_(14453228065).jpg?width=640" alt="Schwarzer Strand Djúpalónssandur" loading="lazy"><figcaption>Djúpalónssandur · schwarzer Strand</figcaption></figure>
       </div>
       <ul class="stops">
         <li><b>Gerðuberg</b>Eine 500 Meter lange Wand aus perfekt sechseckigen Basaltsäulen, direkt an der Straße. Kurzer Halt, großer Effekt.</li>
@@ -382,8 +467,10 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <p><strong>Kirkjufell</strong> ist der meistfotografierte Berg Islands, spitz wie eine Pfeilspitze, 463 Meter hoch, allein am Fjord. Besteigen ist im Winter verboten — wir bleiben unten bei <strong>Kirkjufellsfoss</strong>, dem kleinen dreistufigen Wasserfall, der genau davor liegt.</p>
       <p>Dann quer ins Landesinnere zu <strong>Hraunfossar</strong>: Dort sickert das Wasser nicht über eine Kante, sondern auf hunderte Metern Breite direkt aus einem Lavafeld heraus und fällt in tausend kleinen Fäden in den Fluss. Direkt daneben rauscht <strong>Barnafoss</strong> durch eine enge Schlucht. Zum Abschluss <strong>Deildartunguhver</strong> — die ergiebigste Heißwasserquelle Europas, 180 Liter kochendes Wasser pro Sekunde — und gleich daneben die <strong>Krauma-Bäder</strong>, wo genau dieses Wasser mit Gletscherwasser auf Badetemperatur gemischt wird.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_one_and_only_Kirkjufellfoss_(Unsplash).jpg?width=900" alt="Kirkjufellsfoss vor dem Berg Kirkjufell" loading="lazy"><figcaption>Kirkjufellsfoss</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kirkjufell,_Iceland_(Unsplash_LoKG7kKx7Zc).jpg?width=900" alt="Kirkjufell" loading="lazy"><figcaption>Kirkjufell · 463 m</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kirkjufell,_Iceland_(Unsplash_LoKG7kKx7Zc).jpg?width=640" alt="Berg Kirkjufell" loading="lazy"><figcaption>Kirkjufell · 463 m</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_one_and_only_Kirkjufellfoss_(Unsplash).jpg?width=640" alt="Wasserfall Kirkjufellsfoss" loading="lazy"><figcaption>Kirkjufellsfoss</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hraunfossar,_Iceland,_20240715_0841_0744.jpg?width=640" alt="Hraunfossar sickert aus dem Lavafeld" loading="lazy"><figcaption>Hraunfossar</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Islande_cascade_Hraunfossar_face.jpg?width=640" alt="Hraunfossar von vorn" loading="lazy"><figcaption>900 m Lavakante</figcaption></figure>
       </div>
       <ul class="stops">
         <li><b>Polarlicht</b>Kirkjufell ist einer der besten Aussichtspunkte des Landes: kaum Lichtverschmutzung, freier Blick nach Norden. Wenn der Himmel morgens klar ist, lohnt es sich, hier länger zu bleiben.</li>
@@ -401,9 +488,10 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <p>In <strong>Þingvellir</strong> läuft man buchstäblich zwischen zwei Kontinenten: Hier driften die nordamerikanische und die eurasische Erdplatte auseinander, und im selben Tal wurde ab dem Jahr 930 das älteste Parlament der Welt abgehalten. Beides an einem Ort, das gibt es sonst nirgends.</p>
       <p><strong>Strokkur</strong> ist der Geysir, der wirklich arbeitet: alle sechs bis zehn Minuten schießt er 15 bis 20 Meter hoch, gelegentlich bis 40. Man stellt sich hin und wartet, und irgendwann wölbt sich die Wasseroberfläche zu einer glasklaren blauen Blase — und dann geht es los. Zwei Kilometer weiter stürzt <strong>Gullfoss</strong> über zwei Stufen in eine 70 Meter tiefe Schlucht, im März zur Hälfte in Eis verpackt.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Strokkur_geyser_eruption,_close-up_view.jpg?width=900" alt="Strokkur bricht aus" loading="lazy"><figcaption>Strokkur · alle 6–10 Min.</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Frozen_Gullfoss_(Unsplash_m-NEPqcpQpM).jpg?width=900" alt="Gefrorener Gullfoss" loading="lazy"><figcaption>Gullfoss im Eis</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_-_2017-02-22_-_Gullfoss_-_3684.jpg?width=900" alt="Gullfoss im Schnee" loading="lazy"><figcaption>Hvítá-Schlucht</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Almannagj%C3%A1,_%C3%9Eingvellir_National_Park_(Iceland).jpg?width=640" alt="Kontinentalspalte Almannagjá" loading="lazy"><figcaption>Almannagjá · Þingvellir</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Strokkur_geyser_eruption,_close-up_view.jpg?width=640" alt="Geysir Strokkur bricht aus" loading="lazy"><figcaption>Strokkur</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Frozen_Gullfoss_(Unsplash_m-NEPqcpQpM).jpg?width=640" alt="Gefrorener Gullfoss" loading="lazy"><figcaption>Gullfoss im Eis</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_horse.jpg?width=640" alt="Islandpferd" loading="lazy"><figcaption>Islandpferde · Reiten</figcaption></figure>
       </div>
       <ul class="stops">
         <li><b>Secret Lagoon</b>In Flúðir, Islands ältestes Naturschwimmbad von 1891. Kleiner und ursprünglicher als die Blue Lagoon, rundherum blubbert es aus dem Boden. Am späten Nachmittag fast leer.</li>
@@ -422,9 +510,10 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <p>Kurze Strecke, viel Zeit. <strong>Seljalandsfoss</strong> fällt 60 Meter über eine überhängende Kante, und dahinter führt ein Pfad in eine Nische — man sieht den Wasserfall von hinten und wird dabei komplett nass. Im März ist der Weg oft eisig, wir gehen nur mit Grödeln und nur wenn er offen ist. 200 Meter weiter versteckt sich <strong>Gljúfrabúi</strong> hinter einem Felsspalt, durch den man waten muss.</p>
       <p><strong>Skógafoss</strong> ist der breite, laute Bruder: 25 Meter breit, 60 hoch, mit so viel Sprühnebel, dass an sonnigen Tagen fast immer ein Regenbogen davor steht. Der Legende nach versteckte der erste Wikingersiedler der Gegend, Þrasi Þórólfsson, eine Truhe voll Gold in einer Höhle hinter dem Wasserfall. Gefunden hat man Jahre später nur den Ring am Truhengriff — der hängt heute im Museum von Skógar.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seljalandsfoss_(16467797491).jpg?width=900" alt="Seljalandsfoss" loading="lazy"><figcaption>Seljalandsfoss · 60 m</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_in_winter.jpg?width=900" alt="Skógafoss im Winter" loading="lazy"><figcaption>Skógafoss im Winter</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sk%C3%B3gafoss,_Iceland,_20230501_1447_3978.jpg?width=900" alt="Skógafoss von der Seite" loading="lazy"><figcaption>Skógá-Fluss</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seljalandsfoss_(16467797491).jpg?width=640" alt="Wasserfall Seljalandsfoss" loading="lazy"><figcaption>Seljalandsfoss · 60 m</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_winter.jpg?width=640" alt="Skógafoss im Winter" loading="lazy"><figcaption>Skógafoss im Winter</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_in_winter.jpg?width=640" alt="Skógafoss mit Schnee" loading="lazy"><figcaption>Skógá-Fluss</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Reynisfjara_and_Reynisdrangar,_Iceland.jpg?width=640" alt="Felsnadeln Reynisdrangar" loading="lazy"><figcaption>Reynisdrangar</figcaption></figure>
       </div>
       <div class="warn">
         <b>Reynisfjara · unsere Regel</b>
@@ -443,9 +532,10 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <p>Heute wird die Landschaft größer. Erst die Schlucht <strong>Fjaðrárgljúfur</strong>, hundert Meter tief und moosgrün. Dann quer über <strong>Eldhraun</strong>, das Lavafeld des Laki-Ausbruchs von 1783 — der größte Lavastrom der neueren Geschichte, heute unter einer dicken Moosdecke. Und rechts schiebt sich der <strong>Vatnajökull</strong> ins Bild, der größte Gletscher Europas, der etwa acht Prozent des Landes bedeckt.</p>
       <p>Der Höhepunkt ist <strong>Jökulsárlón</strong>: ein Gletschersee, in dem blau-weiße Eisberge treiben, die vom Breiðamerkurjökull abbrechen. Bis zu 190 Meter tief. Direkt gegenüber, auf der anderen Straßenseite, liegt der <strong>Diamond Beach</strong> — dort spült die Brandung die Eisbrocken zurück auf schwarzen Vulkansand. Klares Eis auf schwarzem Grund, und das Licht bricht sich darin. November bis März ist die beste Zeit dafür, weil der Gletscher im Winter mehr kalbt.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ice,_a_lot_of_ice_-_Flickr_-_anieto2k.jpg?width=900" alt="Eisberge in Jökulsárlón" loading="lazy"><figcaption>Jökulsárlón · bis 190 m tief</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_beach_iceland_.jpg?width=900" alt="Eis auf schwarzem Sand" loading="lazy"><figcaption>Diamond Beach</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_Beach_-_Flickr_-_great.escape.photos.jpg?width=900" alt="Gletschereis auf Vulkansand" loading="lazy"><figcaption>Eis auf Vulkansand</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fja%C3%B0r%C3%A1rglj%C3%BAfur.JPG?width=640" alt="Schlucht Fjaðrárgljúfur" loading="lazy"><figcaption>Fjaðrárgljúfur</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ice,_a_lot_of_ice_-_Flickr_-_anieto2k.jpg?width=640" alt="Eisberge in der Gletscherlagune" loading="lazy"><figcaption>Jökulsárlón</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_beach_iceland_.jpg?width=640" alt="Gletschereis auf schwarzem Sand" loading="lazy"><figcaption>Diamond Beach</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_Beach_-_Flickr_-_great.escape.photos.jpg?width=640" alt="Eisbrocken am Strand" loading="lazy"><figcaption>Eis auf Vulkansand</figcaption></figure>
       </div>
       <ul class="stops">
         <li><b>Timing</b>Diamond Beach bei Niedrigwasser ansehen, dann liegen die meisten Eisbrocken frei. Gezeiten vorher checken.</li>
@@ -465,12 +555,14 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <p>Kaum Fahrerei, dafür der große Ausflug: <strong>Gletscherwanderung mit Eishöhle</strong>, geführt, mit Steigeisen, Gurt, Helm und Eispickel. Die Touren starten meist am Parkplatz Skaftafell oder Jökulsárlón und dauern drei bis vier Stunden. Ohne Guide geht das nicht, und zwar nicht aus Vorsicht, sondern weil die Gletscherspalten teilweise von Schnee überdeckt sind und man sie nicht sieht.</p>
       <p>Die Eishöhlen entstehen jeden Winter neu, weil sich der Gletscher bewegt und Schmelzwasser Tunnel gräbt. Deshalb sieht jede Höhle jedes Jahr anders aus, und deshalb geht das nur von etwa November bis März — <strong>Anfang April ist das absolute Ende der Saison</strong>. Das Eis leuchtet blau, weil es unter dem Druck von Jahrhunderten so dicht zusammengepresst wurde, dass keine Luftbläschen mehr darin sind. Nur das blaue Licht kommt durch.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brei%C3%B0amerkursandur_2024_0619.jpg?width=900" alt="Gletscherzunge des Vatnajökull" loading="lazy"><figcaption>Vatnajökull-Gletscherzunge</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ice,_a_lot_of_ice_-_Flickr_-_anieto2k.jpg?width=900" alt="Blaues Gletschereis" loading="lazy"><figcaption>Gletschereis, blau</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sv%C3%ADnafellsj%C3%B6kull.JPG?width=640" alt="Gletscherzunge Svínafellsjökull" loading="lazy"><figcaption>Svínafellsjökull</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brei%C3%B0amerkursandur_2024_0619.jpg?width=640" alt="Vatnajökull-Gletscherzunge" loading="lazy"><figcaption>Breiðamerkurjökull</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2008-05-24_15_Road_No_1_between_Fjallsj%C3%B6kull_and_Brei%C3%B0armerkurj%C3%B6kull.jpg?width=640" alt="Straße zwischen Fjallsjökull und Breiðamerkurjökull" loading="lazy"><figcaption>Zwischen zwei Gletschern</figcaption></figure>
       </div>
       <ul class="stops">
         <li><b>Mindestalter</b>Bei den meisten Anbietern 8 oder 10 Jahre für die Familientour — mit 12 sind Alva und Flora dabei. Vorab schriftlich bestätigen lassen.</li>
         <li><b>Ausrüstung</b>Steigeisen, Helm und Gurt stellt der Anbieter. Wir brauchen feste, knöchelhohe Wanderschuhe — keine Turnschuhe, damit wird man abgewiesen.</li>
+        <li><b>Schuhgröße</b>Steigeisen passen erst ab Größe 34–35 EU, je nach Anbieter. Bei Alva und Flora vorher kurz abgleichen.</li>
         <li><b>Jetzt buchen</b><span class="tag s">Wichtig</span> Eishöhlentouren am Saisonende sind schnell voll. Sobald die Flüge stehen: buchen.</li>
         <li><b>Plan B</b>Bei Sturm wird abgesagt. Dann: Bootstour auf der Lagune, oder die Gletscherzunge Svínafellsjökull von unten zu Fuß.</li>
       </ul>
@@ -481,15 +573,19 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
   <article class="day">
     <div class="spine"><div class="num mono">08</div><div class="date">Fr 2.4.</div><div class="km"><b class="mono">280 km</b>3 h 30</div></div>
     <div class="dbody">
-      <h3>Zurück nach Westen, mit dem, was wir liegen gelassen haben</h3>
-      <div class="route">Hof <span class="rd">1</span> Kirkjubæjarklaustur <span class="rd">1</span> Sólheimasandur <span class="rd">1</span> Hvolsvöllur</div>
+      <h3>Vulkane von innen, ein Wrack im Sand</h3>
+      <div class="route">Hof <span class="rd">1</span> Kirkjubæjarklaustur <span class="rd">1</span> Sólheimasandur <span class="rd">1</span> LAVA Centre · Hvolsvöllur</div>
       <p>Dieselbe Straße, andere Richtung, komplett anderes Licht. <strong>Kirkjugólf</strong> bei Kirkjubæjarklaustur ist eine ebene Fläche freigelegter Basaltsäulen, die aussieht wie ein gepflasterter Kirchenboden — ist aber reine Geologie, gehobelt von einem Gletscher.</p>
+      <p>Zum Abschluss das <strong>LAVA Centre</strong> direkt in Hvolsvöllur, wo wir übernachten. Die Ausstellung sitzt zwischen fünf aktiven Vulkansystemen — Hekla, Katla, Eyjafjallajökull, Vatnafjöll und Vestmannaeyjar — und erklärt mit echten seismischen Daten, Eruptionsaufnahmen und einem Erdbebensimulator, wie Island entstanden ist und weiter entsteht. Im Schnitt bricht hier alle vier bis fünf Jahre ein Vulkan aus. Ganzjährig täglich offen, komplett drinnen: der perfekte Programmpunkt, wenn draußen Sturm ist.</p>
       <p>Am <strong>Sólheimasandur</strong> liegt seit 1973 das Wrack eines Flugzeugs der US Navy im schwarzen Sand. Die Besatzung überlebte damals, das Aluminiumskelett blieb liegen. Vom Parkplatz sind es rund vier Kilometer zu Fuß über die flache Sandwüste, hin und zurück etwa 1,5 Stunden — oder man nimmt den Shuttle. Abends dann das <strong>Dorfschwimmbad</strong>: geothermal geheizt, mit Hot Pots und Rutsche, Eintritt ein paar Euro. Genau das machen Isländer nach der Arbeit.</p>
       <div class="shots">
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_winter.jpg?width=900" alt="Skógafoss" loading="lazy"><figcaption>Südküste, zweiter Blick</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Winter_Roads_in_Iceland_(Unsplash).jpg?width=900" alt="Straße durch die Sandebene" loading="lazy"><figcaption>Sólheimasandur</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Basalt_pavement,_Kirkjub%C3%A6r_(S%C3%AD%C3%B0a)._(4558214347).jpg?width=640" alt="Kirkjugólf, Fläche aus Basaltsäulen" loading="lazy"><figcaption>Kirkjugólf · Basaltboden</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Airplane_Wreckage_in_South_Iceland.jpg?width=640" alt="Flugzeugwrack im schwarzen Sand" loading="lazy"><figcaption>DC-3-Wrack · 1973</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/S%C3%B3lheimasandur_(230944837).jpeg?width=640" alt="Sandebene Sólheimasandur" loading="lazy"><figcaption>Sólheimasandur</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Isl_Seljavallalaug_framan.JPG?width=640" alt="Geothermales Freibad Seljavallalaug" loading="lazy"><figcaption>Seljavallalaug · Freibad</figcaption></figure>
       </div>
       <ul class="stops">
+        <li><b>Seljavallalaug</b><span class="tag g">Optional</span> Ein 25-Meter-Freibad von 1923, in einen Talkessel unter dem Eyjafjallajökull gebaut. Unbewirtschaftet, kostenlos, 20 Minuten Fußweg. Wer schwimmen will, wo sonst niemand ist.</li>
         <li><b>Reiten</b><span class="tag g">Optional</span> Falls es am Montag nicht geklappt hat: rund um Hvolsvöllur gibt es mehrere Höfe. Zwei Stunden reichen.</li>
         <li><b>Letzte Chance</b>Der Mond ist nur noch zu etwa 13 Prozent beleuchtet. Wenn wir bis hierher keine Polarlichter gesehen haben, ist heute die beste Nacht der Reise.</li>
       </ul>
@@ -498,17 +594,102 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
   </article>
 
   <article class="day">
-    <div class="spine"><div class="num mono">09</div><div class="date">Sa 3.4.</div><div class="km"><b class="mono">150 km</b>1 h 50</div></div>
+    <div class="spine"><div class="num mono">09</div><div class="date">Sa 3.4.</div><div class="km"><b class="mono">140 km</b>2 h 00</div></div>
     <div class="dbody">
       <h3>Ein letztes Mal heißes Wasser, dann nach Hause</h3>
-      <div class="route">Hvolsvöllur <span class="rd">1</span> Sky Lagoon <span class="rd">41</span> Keflavík · KEF</div>
-      <p>Wenn der Flug nicht zu früh geht, passt die <strong>Sky Lagoon</strong> bei Reykjavík noch dazwischen: ein Infinity-Becken mit Blick über den Atlantik, dazu das siebenstufige Ritual mit Kaltbecken, Sauna und Dampfbad. Danach ein Stopp bei Bonus oder Krónan für Skyr und Lakritz-Schokolade — und dann zum Flughafen.</p>
+      <div class="route">Hvolsvöllur <span class="rd">1</span> Reykjaböð · Hveragerði <span class="rd">1</span> <span class="rd">41</span> Keflavík · KEF</div>
+      <p>Auf halbem Weg zum Flughafen liegt <strong>Reykjaböð</strong> im Reykjadalur bei Hveragerði — natürliche heiße Quellen, ein Kneipp-Becken und ein nordisches Bathhouse, eröffnet im August 2026. Von hier ist es noch gut eine Stunde nach Keflavík, das passt auch bei einem Nachmittagsflug. Danach ein Stopp bei Bonus oder Krónan für Skyr und Lakritz-Schokolade.</p>
       <ul class="stops">
         <li><b>Puffer</b>Mietwagen zwei Stunden vor Abflug zurückgeben, vorher volltanken. Direkt am Flughafen ist Sprit teurer.</li>
         <li><b>Wind</b>Autotüren in Island nie ohne Festhalten öffnen. Der Wind reißt sie aus dem Scharnier, und genau das ist der häufigste Mietwagenschaden des Landes.</li>
       </ul>
     </div>
   </article>
+</section>
+
+<section id="karte" class="wrap">
+  <div class="reveal">
+    <div class="sec-label">Karte &amp; Nachlesen</div>
+    <h2 class="big">Wo wir sind, und wo es mehr gibt</h2>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="t-map" aria-controls="p-map" aria-selected="true">Karte</button>
+      <button role="tab" id="t-links" aria-controls="p-links" aria-selected="false">Links</button>
+    </div>
+
+    <div class="panel" id="p-map" role="tabpanel" aria-labelledby="t-map">
+      <div id="map"></div>
+      <div class="legend">
+        <span><i class="pin-lava"></i>Übernachtung</span>
+        <span><i class="pin-ice"></i>Attraktion</span>
+        <span><i class="pin-line"></i>Route</span>
+        <span>Marker antippen für Details</span>
+      </div>
+      <p style="margin-top:20px;font-size:.88rem;color:var(--basalt-soft);max-width:62ch"><span id="routefact">Route wird berechnet …</span> Sie beginnt und endet am Flughafen Keflavík. Kartendaten von OpenStreetMap, Routing über OSRM.</p>
+    </div>
+
+    <div class="panel" id="p-links" role="tabpanel" aria-labelledby="t-links" hidden>
+      <div class="links">
+        <div class="lgroup">
+          <h4>Vor jedem Tag prüfen</h4>
+          <ul>
+            <li><a href="https://www.vedur.is/" target="_blank" rel="noopener">Wetter &amp; Polarlicht-Vorhersage<span>vedur.is · Isländischer Wetterdienst</span></a></li>
+            <li><a href="https://www.road.is/" target="_blank" rel="noopener">Straßenzustand &amp; Sperrungen<span>road.is · Straßenbehörde</span></a></li>
+            <li><a href="https://safetravel.is/" target="_blank" rel="noopener">Warnungen &amp; Sicherheit<span>safetravel.is · Bergwacht</span></a></li>
+          </ul>
+        </div>
+        <div class="lgroup">
+          <h4>Lagunen &amp; Hot Pots</h4>
+          <ul>
+            <li><a href="https://www.bluelagoon.com/" target="_blank" rel="noopener">Blue Lagoon<span>bluelagoon.com · Tag 1 · vorab buchen</span></a></li>
+            <li><a href="https://www.krauma.is/en" target="_blank" rel="noopener">Krauma Geothermal Baths<span>krauma.is · Tag 3 · täglich 11–21 Uhr</span></a></li>
+            <li><a href="https://secretlagoon.is/booking/" target="_blank" rel="noopener">Secret Lagoon Flúðir<span>secretlagoon.is · Tag 4 · Buchung</span></a></li>
+            <li><a href="https://reykjabod.is" target="_blank" rel="noopener">Reykjaböð Hot Springs<span>reykjabod.is · Tag 9 · neu ab Aug. 2026</span></a></li>
+            <li><a href="https://reykjabod.is/faq" target="_blank" rel="noopener">Reykjaböð · Fragen &amp; Regeln<span>reykjabod.is/faq</span></a></li>
+            <li><a href="https://www.re.is/blog/hot-springs-and-geothermal-pools-in-iceland/" target="_blank" rel="noopener">Übersicht aller Thermalbäder<span>re.is · Hintergrund</span></a></li>
+          </ul>
+        </div>
+        <div class="lgroup">
+          <h4>Snæfellsnes · Tag 2 &amp; 3</h4>
+          <ul>
+            <li><a href="https://www.west.is/en/place/kirkjufell-mountain" target="_blank" rel="noopener">Kirkjufell<span>west.is · offizielle Tourismusseite</span></a></li>
+            <li><a href="https://www.re.is/blog/snaefellsnes-peninsula-things-to-see-and-do/" target="_blank" rel="noopener">Halbinsel-Überblick &amp; Robben<span>re.is · inkl. Abstandsregeln</span></a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Dj%C3%BApal%C3%B3nssandur" target="_blank" rel="noopener">Djúpalónssandur &amp; die Kraftsteine<span>Wikipedia · Wrack und Steinatök</span></a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Hraunfossar" target="_blank" rel="noopener">Hraunfossar &amp; Barnafoss<span>Wikipedia · 900 m Lavakante</span></a></li>
+          </ul>
+        </div>
+        <div class="lgroup">
+          <h4>Golden Circle · Tag 4</h4>
+          <ul>
+            <li><a href="https://www.thingvellir.is/en" target="_blank" rel="noopener">Þingvellir Nationalpark<span>thingvellir.is · UNESCO-Welterbe</span></a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Strokkur" target="_blank" rel="noopener">Strokkur<span>Wikipedia · Geysir, alle 6–10 Min.</span></a></li>
+            <li><a href="https://commons.wikimedia.org/wiki/Gullfoss" target="_blank" rel="noopener">Gullfoss<span>Wikimedia · Bilder und Geologie</span></a></li>
+          </ul>
+        </div>
+        <div class="lgroup">
+          <h4>Südküste · Tag 5 &amp; 8</h4>
+          <ul>
+            <li><a href="https://adventures.is/iceland/attractions/seljalandsfoss/" target="_blank" rel="noopener">Seljalandsfoss &amp; Gljúfrabúi<span>adventures.is · Anfahrt und Tipps</span></a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Sk%C3%B3gafoss" target="_blank" rel="noopener">Skógafoss &amp; die Schatzlegende<span>Wikipedia</span></a></li>
+            <li><a href="https://www.katlageopark.com/geosites/mainly-geology/reynisfjara/" target="_blank" rel="noopener">Reynisfjara<span>katlageopark.com · Geologie</span></a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Reynisfjara" target="_blank" rel="noopener">Reynisfjara · Sicherheitslage<span>Wikipedia · Wellen, Sperrungen, Erosion</span></a></li>
+            <li><a href="https://en.wikipedia.org/wiki/1973_S%C3%B3lheimasandur_Douglas_DC-3_crash" target="_blank" rel="noopener">Das Flugzeugwrack<span>Wikipedia · 21.11.1973, alle 7 überlebten</span></a></li>
+            <li><a href="https://lavacentre.is/" target="_blank" rel="noopener">LAVA Centre Hvolsvöllur<span>lavacentre.is · Tag 8 · Tickets</span></a></li>
+            <li><a href="https://lavacentre.is/the-experience/" target="_blank" rel="noopener">LAVA Centre · die Ausstellung<span>lavacentre.is · was drin ist</span></a></li>
+          </ul>
+        </div>
+        <div class="lgroup">
+          <h4>Gletscher · Tag 6 &amp; 7</h4>
+          <ul>
+            <li><a href="https://adventures.is/iceland/attractions/the-diamond-beach/" target="_blank" rel="noopener">Diamond Beach<span>adventures.is · beste Zeit, Gezeiten</span></a></li>
+            <li><a href="https://guidetoiceland.is/travel-iceland/drive/diamond-beach" target="_blank" rel="noopener">Jökulsárlón &amp; Diamond Beach<span>guidetoiceland.is</span></a></li>
+            <li><a href="https://www.glacierguides.is/blog/ice-caves" target="_blank" rel="noopener">Eishöhlen · Anbieter Skaftafell<span>glacierguides.is · Touren buchen</span></a></li>
+            <li><a href="https://adventures.is/blog/ice-cave-vatnajokull/" target="_blank" rel="noopener">Vatnajökull-Eishöhlen<span>adventures.is</span></a></li>
+            <li><a href="https://guidetoiceland.is/nature-info/ice-caves-in-iceland" target="_blank" rel="noopener">Alles über Eishöhlen<span>guidetoiceland.is · Saison, Sicherheit</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="praktisch" class="wrap" style="padding-top:24px">
@@ -524,7 +705,7 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
     <tr><th>Tageslicht</th><td>Rund 13 Stunden. Sonnenaufgang gegen 7, Untergang gegen 20 Uhr, danach genug Dunkelheit für Polarlichter.</td></tr>
     <tr><th>Geld</th><td>Isländische Krone. Kartenzahlung überall, auch an Tankstellen und in Schwimmbädern. Bargeld praktisch nicht nötig.</td></tr>
     <tr><th>Budget</th><td>Island ist teuer, besonders beim Essen. Mit Selbstverpflegung aus Bonus oder Krónan und Guesthouses statt Hotels bleibt es im solide-mittleren Rahmen. Restaurantessen für vier wird schnell dreistellig.</td></tr>
-    <tr><th>Sofort buchen</th><td>Flüge und Mietwagen früh. Eishöhlentour, sobald die Flüge stehen — die Saison endet Anfang April und die Plätze sind begrenzt. Blue Lagoon und Sky Lagoon brauchen ebenfalls Zeitfenster.</td></tr>
+    <tr><th>Sofort buchen</th><td>Flüge und Mietwagen früh. Eishöhlentour, sobald die Flüge stehen — die Saison endet Anfang April und die Plätze sind begrenzt. Blue Lagoon, Krauma und Reykjaböð brauchen ebenfalls Zeitfenster. Und das LAVA Centre in Hvolsvöllur ist ganzjährig offen, da reicht spontan.</td></tr>
   </table>
 
   <div class="cols reveal">
@@ -567,7 +748,7 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
 
 <section class="close">
   <div class="wrap">
-    <h2>Neun Tage.<br>Fünfmal <em>heißes Wasser</em>.<br>Ein Gletscher von innen.</h2>
+    <h2>Neun Tage.<br>Viermal <em>heißes Wasser</em>.<br>Ein Gletscher von innen.</h2>
     <p>Und irgendwann steht man um halb elf abends auf einem Schotterparkplatz im Südosten Islands, es ist minus zwei Grad, alle vier schauen nach oben. Vielleicht passiert nichts. Und vielleicht fängt der Himmel an, sich zu bewegen.</p>
   </div>
 </section>
@@ -604,6 +785,113 @@ document.querySelectorAll('img').forEach(img=>{
     if(f)f.style.display='none';
   });
 });
+
+// ---------- Tabs ----------
+(function(){
+  const tabs=[['t-map','p-map'],['t-links','p-links']];
+  tabs.forEach(([tid,pid])=>{
+    document.getElementById(tid).addEventListener('click',()=>{
+      tabs.forEach(([t,pa])=>{
+        const on=t===tid;
+        document.getElementById(t).setAttribute('aria-selected',on);
+        document.getElementById(pa).hidden=!on;
+      });
+      if(tid==='t-map'&&window.__map)setTimeout(()=>window.__map.invalidateSize(),60);
+    });
+  });
+})();
+
+// ---------- Karte ----------
+const STOPS=[
+ {n:'Keflavík · Flughafen',t:'Ankunft & Abflug',d:'Tag 1 + 9',c:[63.985,-22.605],k:'a'},
+ {n:'Blue Lagoon',t:'38 °C im Lavafeld, 20 Min. vom Flughafen',d:'Tag 1',c:[63.8792,-22.4455],k:'a'},
+ {n:'Borgarnes',t:'Erste Nacht, Guesthouse oder Farmstay',d:'Tag 1',c:[64.538,-21.921],k:'s'},
+ {n:'Gerðuberg',t:'500 m Wand aus sechseckigen Basaltsäulen',d:'Tag 2',c:[64.845,-22.352],k:'a'},
+ {n:'Ytri Tunga',t:'Seehundkolonie, ganzjährig. Goldener Sand.',d:'Tag 2',c:[64.803,-23.075],k:'a'},
+ {n:'Búðakirkja',t:'Schwarze Holzkirche allein im Lavafeld',d:'Tag 2',c:[64.821,-23.383],k:'a'},
+ {n:'Arnarstapi',t:'Klippen und Felsentore an der Steilküste',d:'Tag 2',c:[64.767,-23.626],k:'a'},
+ {n:'Djúpalónssandur',t:'Schwarzer Strand, Schiffswrack, Kraftsteine',d:'Tag 2',c:[64.752,-23.903],k:'a'},
+ {n:'Hellissandur',t:'Übernachtung an der Westspitze',d:'Tag 2',c:[64.914,-23.897],k:'s'},
+ {n:'Kirkjufell',t:'463 m. Der meistfotografierte Berg Islands.',d:'Tag 3',c:[64.9410,-23.3057],k:'a'},
+ {n:'Hraunfossar',t:'Wasser sickert auf 900 m aus dem Lavafeld',d:'Tag 3',c:[64.702,-20.978],k:'a'},
+ {n:'Deildartunguhver & Krauma',t:'Europas ergiebigste Heißwasserquelle, mit Bad',d:'Tag 3',c:[64.663,-21.411],k:'a'},
+ {n:'Laugarvatn',t:'Übernachtung am See',d:'Tag 3',c:[64.216,-20.730],k:'s'},
+ {n:'Þingvellir',t:'Zwei Kontinente und das älteste Parlament der Welt',d:'Tag 4',c:[64.2538,-21.0373],k:'a'},
+ {n:'Geysir & Strokkur',t:'Ausbruch alle 6–10 Minuten, 15–20 m hoch',d:'Tag 4',c:[64.3138,-20.2995],k:'a'},
+ {n:'Gullfoss',t:'Zwei Stufen in eine 70 m tiefe Schlucht',d:'Tag 4',c:[64.327,-20.121],k:'a'},
+ {n:'Secret Lagoon · Flúðir',t:'Islands ältestes Naturschwimmbad, 1891',d:'Tag 4',c:[64.138,-20.313],k:'a'},
+ {n:'Hella',t:'Übernachtung, Reithöfe in der Nähe',d:'Tag 4',c:[63.836,-20.394],k:'s'},
+ {n:'Seljalandsfoss',t:'60 m. Man kann dahinter durchlaufen.',d:'Tag 5',c:[63.6158,-19.9928],k:'a'},
+ {n:'Skógafoss',t:'60 m hoch, 25 m breit. Regenbogen inklusive.',d:'Tag 5',c:[63.5321,-19.5111],k:'a'},
+ {n:'Dyrhólaey',t:'Aussichtspunkt mit Felsentor — Alternative bei Rot',d:'Tag 5',c:[63.402,-19.126],k:'a'},
+ {n:'Reynisfjara',t:'Schwarzer Strand. Warnampel beachten, 30 m Abstand.',d:'Tag 5',c:[63.404,-19.044],k:'a'},
+ {n:'Vík í Mýrdal',t:'Übernachtung',d:'Tag 5',c:[63.418,-19.006],k:'s'},
+ {n:'Fjaðrárgljúfur',t:'100 m tiefe Schlucht, moosgrün',d:'Tag 6',c:[63.771,-18.172],k:'a'},
+ {n:'Skaftafell',t:'Startpunkt der Gletschertouren',d:'Tag 6 + 7',c:[64.017,-16.975],k:'a'},
+ {n:'Jökulsárlón',t:'Gletschersee mit treibenden Eisbergen, bis 190 m tief',d:'Tag 6',c:[64.0703,-16.2117],k:'a'},
+ {n:'Diamond Beach',t:'Klares Gletschereis auf schwarzem Vulkansand',d:'Tag 6',c:[64.043,-16.179],k:'a'},
+ {n:'Hof',t:'Zwei Nächte. Dunkelste Ecke der Reise.',d:'Tag 6 + 7',c:[63.925,-16.740],k:'s'},
+ {n:'Kirkjubæjarklaustur',t:'Kirkjugólf: Basaltsäulen wie ein gepflasterter Boden',d:'Tag 8',c:[63.791,-18.061],k:'a'},
+ {n:'Sólheimasandur',t:'DC-3-Wrack von 1973, 4 km zu Fuß',d:'Tag 8',c:[63.459,-19.364],k:'a'},
+ {n:'Hvolsvöllur · LAVA Centre',t:'Vulkanausstellung mit Erdbebensimulator. Letzte Nacht.',d:'Tag 8',c:[63.750,-20.227],k:'s'},
+ {n:'Reykjaböð · Hveragerði',t:'Neue heiße Quellen und Bathhouse im Reykjadalur',d:'Tag 9',c:[64.0476,-21.2220],k:'a'},
+ {n:'Keflavík · Rückflug',t:'Mietwagen zurück, Heimflug. Kreis geschlossen.',d:'Tag 9',c:[63.985,-22.605],k:'a'}
+];
+
+(function initMap(){
+  const sc=document.createElement('script');
+  sc.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+  sc.onload=()=>{
+    const map=L.map('map',{scrollWheelZoom:false}).setView([64.35,-19.6],6);
+    window.__map=map;
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+      attribution:'&copy; OpenStreetMap, &copy; CARTO',maxZoom:18
+    }).addTo(map);
+
+    // Route entlang der echten Straßen berechnen (OSRM), sonst Luftlinie
+    const STYLE={color:'#4A5257',weight:3.5,opacity:.9,lineJoin:'round',lineCap:'round'};
+    let fallback=L.polyline(STOPS.map(o=>o.c),{...STYLE,opacity:.4,dashArray:'5,6'}).addTo(map);
+
+    (async()=>{
+      const coords=STOPS.map(o=>o.c[1].toFixed(5)+','+o.c[0].toFixed(5)).join(';');
+      const url='https://router.project-osrm.org/route/v1/driving/'+coords+'?overview=full&geometries=geojson';
+      try{
+        const r=await fetch(url);
+        if(!r.ok)throw new Error(r.status);
+        const j=await r.json();
+        const g=j.routes&&j.routes[0]&&j.routes[0].geometry;
+        if(!g)throw new Error('keine Geometrie');
+        map.removeLayer(fallback);
+        L.geoJSON(g,{style:STYLE}).addTo(map).bringToBack();
+        const km=Math.round(j.routes[0].distance/1000);
+        const el=document.getElementById('routefact');
+        if(el)el.textContent='Route über die Straße berechnet: '+km.toLocaleString('de-DE')+' km.';
+      }catch(e){
+        const el=document.getElementById('routefact');
+        if(el)el.textContent='Straßenrouting nicht verfügbar — die Linie zeigt gestrichelt die Reihenfolge der Stopps.';
+      }
+    })();
+
+    STOPS.forEach(o=>{
+      const sleep=o.k==='s';
+      L.circleMarker(o.c,{
+        radius:sleep?8:5.5,
+        color:'#fff',weight:2,
+        fillColor:sleep?'#B32B1A':'#3C7E9E',
+        fillOpacity:1
+      }).addTo(map).bindPopup(
+        '<em>'+o.d+(sleep?' · Übernachtung':'')+'</em><b>'+o.n+'</b>'+o.t
+      );
+    });
+
+    map.fitBounds(STOPS.map(o=>o.c),{padding:[34,34]});
+    map.once('focus',()=>map.scrollWheelZoom.enable());
+  };
+  sc.onerror=()=>{
+    document.getElementById('map').innerHTML='<div style="padding:40px;font-size:.9rem">Die Karte konnte nicht geladen werden. Sie braucht eine Internetverbindung.</div>';
+  };
+  document.head.appendChild(sc);
+})();
 </script>
 </body>
 </html>
