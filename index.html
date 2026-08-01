@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Island 2027 · Neun Tage Feuer und Eis</title>
+<meta name="description" content="Familien-Roadbook für neun Tage Island in den Osterferien 2027: Snæfellsnes, Golden Circle, Südküste, Gletscherhöhle und Polarlichter.">
+<meta name="theme-color" content="#171B1F">
+<meta property="og:title" content="Island 2027 · Neun Tage Feuer und Eis">
+<meta property="og:description" content="Wasserfälle, ein Strand aus schwarzem Sand mit Eisbergen darauf, eine Höhle im Gletscher — und wenn wir Glück haben, grünes Licht am Himmel.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:ital,wght@0,300..800;1,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --basalt:#171B1F;
+  --basalt-soft:#333C43;
+  --glacier:#DDE6EA;
+  --glacier-deep:#B9CBD3;
+  --ice:#3C7E9E;
+  --glacier-bright:#7CC8E2;
+  --moss:#4C6146;
+  --lava:#B32B1A;
+  --ember:#E2801F;
+  --paper:#F1F4F6;
+  --hair:rgba(23,27,31,.14);
+  --nav:64px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav)}
+body{
+  margin:0;background:var(--paper);color:var(--basalt);
+  font-family:'Karla',system-ui,sans-serif;font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.08;margin:0;font-variation-settings:'SOFT' 0,'WONK' 1}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+img{max-width:100%}
+
+/* progress + nav */
+#bar{position:fixed;top:0;left:0;height:2px;background:var(--ember);width:0;z-index:60;transition:width .1s linear}
+nav{
+  position:sticky;top:0;z-index:50;height:var(--nav);
+  background:rgba(241,244,246,.9);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--hair);display:flex;align-items:center;
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;gap:20px}
+nav .brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+nav .brand span{color:var(--lava)}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav a{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;color:var(--basalt-soft);white-space:nowrap;
+  padding:4px 0;border-bottom:1px solid transparent;
+}
+nav a:hover,nav a:focus-visible{color:var(--lava);border-color:var(--lava)}
+
+/* hero */
+.hero{position:relative;min-height:calc(100vh - var(--nav));display:flex;align-items:flex-end;background:var(--basalt);overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;transform:scale(1.04)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(178deg,rgba(23,27,31,.5) 0%,rgba(23,27,31,.1) 34%,rgba(23,27,31,.94) 90%)}
+.hero-in{position:relative;z-index:2;width:100%;padding:0 0 72px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--glacier-deep);margin-bottom:24px}
+.hero h1{color:#fff;font-size:clamp(2.9rem,9.2vw,7rem);letter-spacing:-.038em;font-weight:400;font-variation-settings:'SOFT' 45,'WONK' 1}
+.hero h1 em{font-style:italic;color:var(--glacier-deep);font-weight:300}
+.hero h1 .fire{color:var(--ember)}
+.hero h1 .iceword{color:var(--glacier-bright)}
+
+/* Kilometer in Kontext */
+.dist{margin-top:52px;border-top:2px solid var(--basalt);border-bottom:1px solid var(--hair);padding:30px 0}
+.dist h4{font-size:1.2rem;margin-bottom:8px}
+.dist>p{margin:0 0 26px;max-width:62ch;font-size:.97rem;color:var(--basalt-soft)}
+.distgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:26px}
+.distgrid div span{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ice);margin-bottom:7px}
+.distgrid div b{font-family:'Fraunces',serif;font-size:1.85rem;font-weight:600;display:block;line-height:1;font-variation-settings:'SOFT' 0,'WONK' 1}
+.distgrid div i{font-style:normal;font-size:.86rem;color:var(--basalt-soft);display:block;margin-top:6px}
+.anchor{margin:26px 0 4px;display:grid;gap:11px;padding:20px 0;border-top:1px dashed var(--hair);border-bottom:1px dashed var(--hair)}
+.arow{display:grid;grid-template-columns:170px 1fr 128px;align-items:center;gap:14px;font-size:.86rem}
+.arow em{font-style:normal;color:var(--basalt);font-weight:600}
+.arow u{text-decoration:none;height:11px;background:var(--glacier-deep);display:block;position:relative}
+.arow u i{position:absolute;inset:0 auto 0 0;background:var(--ice);display:block}
+.arow u i.hot{background:var(--lava)}
+.arow s{text-decoration:none;text-align:right;font-size:11px;color:var(--basalt-soft);letter-spacing:.03em}
+@media(max-width:640px){.arow{grid-template-columns:1fr;gap:4px}.arow s{text-align:left}}
+.bars{margin-top:30px;display:grid;gap:7px}
+.barrow{display:grid;grid-template-columns:88px 1fr 62px;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px}
+.barrow em{font-style:normal;color:var(--basalt-soft);letter-spacing:.06em}
+.barrow u{text-decoration:none;height:7px;background:var(--glacier-deep);display:block;position:relative}
+.barrow u i{position:absolute;inset:0 auto 0 0;background:var(--ice);display:block}
+.barrow u i.hot{background:var(--lava)}
+.barrow s{text-decoration:none;text-align:right;color:var(--basalt)}
+.hero-sub{color:var(--glacier);max-width:46ch;margin-top:24px;font-size:1.14rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:22px 46px;margin-top:40px;border-top:1px solid rgba(255,255,255,.22);padding-top:22px}
+.hero-meta div{color:#fff}
+.hero-meta span{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--glacier-deep);margin-bottom:5px}
+.hero-meta strong{font-weight:500;font-size:1.02rem}
+
+section{padding:92px 0}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ice);margin-bottom:18px}
+h2.big{font-size:clamp(1.9rem,4.8vw,3.2rem);letter-spacing:-.028em;max-width:24ch}
+.lede{font-size:1.28rem;line-height:1.55;max-width:62ch;margin-top:26px}
+
+/* pitch */
+.pitch{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;margin-top:56px;background:var(--hair)}
+.pitch div{background:var(--paper);padding:28px 26px}
+.pitch h4{font-size:1.16rem;margin-bottom:10px}
+.pitch p{margin:0;font-size:.94rem;color:var(--basalt-soft)}
+.who{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lava);display:block;margin-bottom:15px}
+
+/* strip gallery */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:64px}
+.strip figure{margin:0;position:relative;overflow:hidden}
+.strip img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--glacier-deep);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.strip figure:hover img{transform:scale(1.05)}
+.strip figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:14px;
+  background:linear-gradient(0deg,rgba(23,27,31,.85),transparent);
+  color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* aurora */
+.aurora{background:var(--basalt);color:var(--glacier)}
+.aurora h2{color:#fff}
+.aurora .sec-label{color:var(--ember)}
+.aurora p{color:var(--glacier-deep);max-width:64ch}
+.aurora strong{color:#fff}
+.moonrow{display:grid;grid-template-columns:repeat(9,1fr);gap:9px;margin-top:48px}
+.moon{text-align:center}
+.moon .disc{width:100%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:#0D1013;position:relative;overflow:hidden;margin-bottom:11px}
+.moon .disc i{position:absolute;top:0;bottom:0;right:0;background:linear-gradient(90deg,rgba(226,128,31,.32),#F0E2CC);border-radius:50%/50%}
+.moon b{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;color:#fff}
+.moon span{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ice);margin-top:3px}
+.moon.best b{color:var(--ember)}
+.moon.best .disc{border-color:rgba(226,128,31,.65)}
+.note{margin-top:42px;padding:22px 26px;border-left:2px solid var(--ember);font-size:.95rem;color:var(--glacier)}
+.honest{margin-top:28px;padding:24px 28px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);font-size:.95rem;max-width:70ch}
+.honest b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ember);margin-bottom:11px}
+.honest p{margin:0 0 12px;color:var(--glacier)}
+.honest p:last-child{margin:0}
+.honest em{color:#fff;font-style:italic}
+
+/* roadbook */
+.day{display:grid;grid-template-columns:118px 1fr;border-top:1px solid var(--hair)}
+.day:last-of-type{border-bottom:1px solid var(--hair)}
+.spine{padding:40px 20px 40px 0;border-right:1px solid var(--hair)}
+.spine .num{font-family:'Fraunces',serif;font-size:2.6rem;line-height:1;color:var(--glacier-deep);font-variation-settings:'SOFT' 0,'WONK' 1}
+.spine .date{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--basalt-soft);margin-top:10px;text-transform:uppercase}
+.spine .km{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ice);margin-top:18px;padding-top:15px;border-top:1px solid var(--hair)}
+.spine .km b{display:block;color:var(--basalt);font-weight:600;font-size:14px}
+.dbody{padding:40px 0 50px 36px}
+.day h3{font-size:clamp(1.5rem,3.3vw,2.1rem);letter-spacing:-.022em;max-width:27ch}
+.route{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--moss);margin:15px 0 22px;line-height:2}
+.rd{display:inline-block;background:var(--basalt);color:#fff;padding:1px 6px;border-radius:2px;margin:0 3px;font-size:10.5px}
+.day p{margin:0 0 16px;max-width:66ch}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:12px;margin:28px 0}
+.shots figure{margin:0}
+.shots img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--glacier-deep)}
+.shots figcaption{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.05em;color:var(--basalt-soft);margin-top:7px;text-transform:uppercase}
+.stops{list-style:none;padding:0;margin:22px 0 0}
+.stops li{padding:12px 0;border-top:1px dashed var(--hair);display:grid;grid-template-columns:135px 1fr;gap:16px;font-size:.95rem}
+.stops li b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ice);font-weight:500;padding-top:3px}
+.sleep{margin-top:26px;padding:15px 19px;background:var(--glacier);font-size:.92rem}
+.sleep b{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:5px;color:var(--moss)}
+.tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:3px 9px;border:1px solid var(--lava);color:var(--lava);margin:0 6px 6px 0}
+.tag.g{border-color:var(--moss);color:var(--moss)}
+.tag.s{border-color:#8F4E0C;color:#8F4E0C}
+.warn{margin:26px 0;padding:22px 24px;background:#fff;border-left:3px solid var(--lava);font-size:.94rem}
+.warn b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lava);margin-bottom:9px}
+.warn p{margin:0 0 10px}.warn p:last-child{margin:0}
+
+/* practical */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:40px;margin-top:50px}
+.cols h4{font-size:1.16rem;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--basalt)}
+.cols ul{margin:0;padding-left:1.1em;font-size:.95rem}
+.cols li{margin-bottom:8px}
+.facts{width:100%;border-collapse:collapse;margin-top:44px;font-size:.95rem}
+.facts th,.facts td{text-align:left;padding:14px;border-bottom:1px solid var(--hair);vertical-align:top}
+.facts th{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);font-weight:500;width:180px}
+
+/* closing */
+.close{background:var(--basalt);color:#fff;text-align:center;padding:120px 0}
+.close h2{font-size:clamp(2rem,6vw,4rem);letter-spacing:-.03em;font-weight:400;font-variation-settings:'SOFT' 45,'WONK' 1;max-width:20ch;margin:0 auto}
+.close h2 em{font-style:italic;color:var(--ember);font-weight:300}
+.close p{color:var(--glacier-deep);max-width:48ch;margin:26px auto 0}
+footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86rem}
+
+@media(max-width:820px){
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .moonrow{grid-template-columns:repeat(5,1fr);gap:13px}
+}
+@media(max-width:700px){
+  .day{grid-template-columns:1fr}
+  .spine{border-right:none;border-bottom:1px dashed var(--hair);padding:30px 0 20px;display:flex;align-items:baseline;gap:20px;flex-wrap:wrap}
+  .spine .num{font-size:1.8rem}
+  .spine .date,.spine .km{margin:0;border:none;padding:0}
+  .dbody{padding:26px 0 42px}
+  .stops li{grid-template-columns:1fr;gap:2px}
+  section{padding:64px 0}
+  nav ul{gap:18px}
+}
+@media(prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+}
+:focus-visible{outline:2px solid var(--lava);outline-offset:3px}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Island <span>2027</span></div>
+    <ul>
+      <li><a href="#warum">Warum</a></li>
+      <li><a href="#polarlicht">Polarlicht</a></li>
+      <li><a href="#route">Route</a></li>
+      <li><a href="#praktisch">Praktisch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aurora_Borealis_activity_on_top_of_the_Kirkjufell_mountain_in_September_2018.jpg?width=2000" alt="Polarlicht über dem Berg Kirkjufell">
+  <div class="hero-in wrap">
+    <div class="eyebrow">Osterferien 2027 · Karfreitag 26. März – Samstag 3. April</div>
+    <h1>Island.<br><em>Neun Tage</em><br><span class="fire">Feuer</span> und <span class="iceword">Eis</span>.</h1>
+    <p class="hero-sub">Ein Wasserfall, hinter dem man durchlaufen kann. Ein Strand aus schwarzem Sand, auf dem Eisberge liegen. Eine Höhle im Gletscher. Fünfmal heißes Wasser bei zwei Grad Außentemperatur. Und wenn wir Glück haben: grünes Licht am Himmel.</p>
+    <div class="hero-meta">
+      <div><span>Route</span><strong>Snæfellsnes · Golden Circle · Südküste</strong></div>
+      <div><span>Fahren pro Tag</span><strong class="mono">ø 2 h 40</strong></div>
+      <div><span>Hot Pots</span><strong class="mono">5</strong></div>
+      <div><span>Wasserfälle</span><strong class="mono">8</strong></div>
+    </div>
+  </div>
+</header>
+
+<section id="warum" class="wrap">
+  <div class="reveal">
+    <div class="sec-label">Worum es geht</div>
+    <h2 class="big">Kein Strandurlaub. Ein Abenteuer mit heißem Wasser.</h2>
+    <p class="lede">Ende März hat Island rund <strong>13 Stunden Tageslicht</strong> — genug, um jeden Tag etwas zu erleben, und trotzdem noch dunkle Nächte für Polarlichter. Tagsüber sind es 2 bis 7 Grad. Das klingt kalt, ist es auch, und genau deshalb funktionieren die heißen Quellen so gut: draußen Schnee, im Becken 38 Grad, und der Dampf zieht über die Lava.</p>
+  </div>
+  <div class="pitch reveal">
+    <div>
+      <span class="who">Für Elisa</span>
+      <h4>Acht Wasserfälle</h4>
+      <p>Seljalandsfoss, hinter dem ein Pfad durchführt. Skógafoss, 60 Meter hoch und 25 breit. Gullfoss halb im Eis. Hraunfossar, das aus einem Lavafeld heraussickert. Kirkjufellsfoss vor dem berühmtesten Berg des Landes.</p>
+    </div>
+    <div>
+      <span class="who">Für Alva und Flora</span>
+      <h4>Fünf Hot Pots</h4>
+      <p>Blue Lagoon direkt nach der Landung. Krauma an Europas ergiebigster Heißwasserquelle. Secret Lagoon in Flúðir, wo es aus dem Boden blubbert. Ein Dorfschwimmbad. Und Sky Lagoon am Abflugtag.</p>
+    </div>
+    <div>
+      <span class="who">Für alle vier</span>
+      <h4>Eine Höhle im Gletscher</h4>
+      <p>Mit Steigeisen, Gurt und Guide in den Vatnajökull hinein — den größten Gletscher Europas. Das Eis leuchtet blau, weil es so alt und so zusammengepresst ist, dass keine Luft mehr darin steckt.</p>
+    </div>
+    <div>
+      <span class="who">Wenn wir Glück haben</span>
+      <h4>Nordlichter</h4>
+      <p>Die Saison läuft bis Anfang April. Unsere Woche liegt bei abnehmendem Mond, die Nächte werden von Tag zu Tag dunkler. Kein Versprechen — aber eine echte Chance, und die besten Nächte kommen zum Schluss.</p>
+    </div>
+  </div>
+  <div class="strip reveal">
+    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_beach_iceland_.jpg?width=800" alt="Gletschereis auf schwarzem Sand"><figcaption>Diamond Beach</figcaption></figure>
+    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_winter.jpg?width=800" alt="Skógafoss im Winter"><figcaption>Skógafoss</figcaption></figure>
+    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Strokkur_geyser_eruption,_close-up_view.jpg?width=800" alt="Ausbruch des Geysirs Strokkur"><figcaption>Strokkur</figcaption></figure>
+    <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kirkjufell,_Iceland_(Unsplash_LoKG7kKx7Zc).jpg?width=800" alt="Berg Kirkjufell"><figcaption>Kirkjufell</figcaption></figure>
+  </div>
+</section>
+
+<section id="polarlicht" class="aurora">
+  <div class="wrap reveal">
+    <div class="sec-label">Das Polarlicht-Barometer</div>
+    <h2 class="big">Warum genau diese Tage</h2>
+    <p class="lede">Für Polarlichter braucht man nicht nur Sonnenaktivität, sondern vor allem einen <strong>dunklen Himmel</strong>. Der größte Störfaktor ist der Mond. Am 22. März 2027 ist Vollmond — wer da unterwegs ist, hat die halbe Nacht eine Flutlichtanlage über sich. Bis Anfang April nimmt der Mond ab. Unsere Nächte werden also von Tag zu Tag dunkler, und die dunkelsten fallen genau auf die Tage, an denen wir im Südosten weit weg von jeder Straßenlaterne schlafen.</p>
+    <div class="moonrow">
+      <div class="moon"><div class="disc"><i style="width:80%"></i></div><b>26.3.</b><span>~80%</span></div>
+      <div class="moon"><div class="disc"><i style="width:72%"></i></div><b>27.3.</b><span>~72%</span></div>
+      <div class="moon"><div class="disc"><i style="width:62%"></i></div><b>28.3.</b><span>~62%</span></div>
+      <div class="moon"><div class="disc"><i style="width:52%"></i></div><b>29.3.</b><span>~52%</span></div>
+      <div class="moon"><div class="disc"><i style="width:42%"></i></div><b>30.3.</b><span>~42%</span></div>
+      <div class="moon best"><div class="disc"><i style="width:31%"></i></div><b>31.3.</b><span>~31%</span></div>
+      <div class="moon best"><div class="disc"><i style="width:21%"></i></div><b>1.4.</b><span>~21%</span></div>
+      <div class="moon best"><div class="disc"><i style="width:13%"></i></div><b>2.4.</b><span>~13%</span></div>
+      <div class="moon best"><div class="disc"><i style="width:7%"></i></div><b>3.4.</b><span>~7%</span></div>
+    </div>
+    <div class="note">
+      <strong>So machen wir's:</strong> Jeden Abend gegen 21 Uhr die Aurora-Vorhersage des isländischen Wetterdienstes prüfen (vedur.is). Wenn die Karte grün ist und der Himmel offen: Jacken an, ein paar Minuten weg vom Guesthouse, und dann zehn Minuten still stehen, damit sich die Augen an die Dunkelheit gewöhnen. Erst dann sieht man richtig. Die Handykamera im Nachtmodus erkennt übrigens mehr als das Auge — am besten auf dem Autodach abstützen.
+    </div>
+    <div class="honest">
+      <b>Und wenn nicht?</b>
+      <p>Polarlichter sind Wetter, kein Programmpunkt. Man braucht Sonnenaktivität, einen wolkenfreien Himmel und einen dunklen Mond — alles drei gleichzeitig, und keins davon lässt sich buchen. Es gibt Familien, die zwei Wochen in Island waren und nichts gesehen haben.</p>
+      <p>Wir stellen uns also darauf ein, dass es klappen <em>kann</em>. Und wir haben eine Reise geplant, die auch ohne grünen Himmel großartig ist: die Gletscherhöhle, der Strand mit den Eisbergen, acht Wasserfälle und fünfmal heißes Wasser passieren so oder so.</p>
+    </div>
+  </div>
+</section>
+
+<section id="route" class="wrap">
+  <div class="reveal">
+    <div class="sec-label">Das Roadbook</div>
+    <h2 class="big">Tag für Tag</h2>
+    <p class="lede">Wir schlafen nie mehr als zwei Nächte am selben Ort. Alle Zeiten sind Winterwerte mit Puffer für Wind, Schneematsch und Fotostopps.</p>
+    <div class="dist">
+      <h4>Zur Fahrerei — bevor jemand erschrickt</h4>
+      <p>Auf dem Papier sind es rund 1.700 Kilometer. Verteilt auf neun Tage sind das weniger als drei Stunden am Steuer pro Tag. Der Vergleich, den wir alle kennen: <strong>Königstein bis zum Ferienhaus in Hooksiel</strong> sind etwa 520 Kilometer und gut fünf Stunden. Der längste Tag in Island ist ungefähr halb so lang wie <em>eine</em> Fahrt an die Nordsee — und ein normaler Tag ist etwa ein Drittel davon.</p>
+      <p>Dazu kommt: In Island ist die Straße nicht der Weg zum Ziel, sie <em>ist</em> das Ziel. Links Gletscher, rechts Wasserfälle, dazwischen Islandpferde am Zaun. Wir halten alle zwanzig Minuten sowieso an.</p>
+      <div class="anchor">
+        <div class="arow"><em>Königstein → Hooksiel</em><u><i class="hot" style="width:100%"></i></u><s class="mono">520 km · 5 h 15</s></div>
+        <div class="arow"><em>Längster Islandtag</em><u><i style="width:54%"></i></u><s class="mono">280 km · 3 h 30</s></div>
+        <div class="arow"><em>Normaler Islandtag</em><u><i style="width:37%"></i></u><s class="mono">190 km · 2 h 40</s></div>
+      </div>
+      <div class="distgrid">
+        <div><span>Pro Tag</span><b class="mono">ø 190 km</b><i>gut ein Drittel Hooksiel</i></div>
+        <div><span>Am Steuer</span><b class="mono">ø 2 h 40</b><i>der Rest ist draußen</i></div>
+        <div><span>Längster Tag</span><b class="mono">280 km</b><i>halb so weit wie Hooksiel</i></div>
+        <div><span>Kürzester Tag</span><b class="mono">80 km</b><i>Gletschertag, fast kein Auto</i></div>
+      </div>
+      <div class="bars">
+        <div class="barrow"><em>Tag 1 · Fr</em><u><i style="width:24%"></i></u><s>2 h 10</s></div>
+        <div class="barrow"><em>Tag 2 · Sa</em><u><i style="width:34%"></i></u><s>3 h 00</s></div>
+        <div class="barrow"><em>Tag 3 · So</em><u><i style="width:40%"></i></u><s>3 h 30</s></div>
+        <div class="barrow"><em>Tag 4 · Mo</em><u><i style="width:34%"></i></u><s>3 h 00</s></div>
+        <div class="barrow"><em>Tag 5 · Di</em><u><i style="width:25%"></i></u><s>2 h 15</s></div>
+        <div class="barrow"><em>Tag 6 · Mi</em><u><i style="width:40%"></i></u><s>3 h 30</s></div>
+        <div class="barrow"><em>Tag 7 · Do</em><u><i class="hot" style="width:14%"></i></u><s>1 h 15</s></div>
+        <div class="barrow"><em>Tag 8 · Fr</em><u><i style="width:40%"></i></u><s>3 h 30</s></div>
+        <div class="barrow"><em>Tag 9 · Sa</em><u><i class="hot" style="width:21%"></i></u><s>1 h 50</s></div>
+      </div>
+    </div>
+  </div>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">01</div><div class="date">Fr 26.3. · Karfreitag</div><div class="km"><b class="mono">170 km</b>2 h 10</div></div>
+    <div class="dbody">
+      <h3>Landen, ins heiße Wasser, Richtung Norden</h3>
+      <div class="route">KEF <span class="rd">43</span> Blue Lagoon <span class="rd">41</span> <span class="rd">1</span> Borgarnes</div>
+      <p>Der beste Trick gegen Flugmüdigkeit: nicht ins Hotel, sondern ins Wasser. Die Blue Lagoon liegt zwanzig Minuten vom Flughafen — milchig-türkis, 38 Grad, mitten in einem schwarzen Lavafeld. Danach durch den Hvalfjörður-Tunnel nach Borgarnes, damit wir die erste Nacht schon draußen im Land verbringen.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_Blue_Lagoon.jpg?width=900" alt="Blue Lagoon im Lavafeld" loading="lazy"><figcaption>Blue Lagoon · Grindavík</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Winter_Roads_in_Iceland_(Unsplash).jpg?width=900" alt="Winterstraße in Island" loading="lazy"><figcaption>Ringstraße im März</figcaption></figure>
+      </div>
+      <ul class="stops">
+        <li><b>Tickets</b>Blue Lagoon nur mit Vorbuchung, Zeitfenster sind begrenzt. Handtuch ist im Comfort-Paket enthalten.</li>
+        <li><b>Tipp</b>Lange Haare vorher gut mit Conditioner einreiben — das Silikat macht sie sonst strohig.</li>
+        <li><b>Mietwagen</b>Am Flughafen abholen. 4×4, Winterreifen, Sand- und Ascheversicherung dazu.</li>
+      </ul>
+      <div class="sleep"><b>Übernachtung</b>Guesthouse oder Farmstay bei Borgarnes</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">02</div><div class="date">Sa 27.3.</div><div class="km"><b class="mono">180 km</b>3 h</div></div>
+    <div class="dbody">
+      <h3>Snæfellsnes, Südseite — Robben, Lavatore, schwarzer Sand</h3>
+      <div class="route">Borgarnes <span class="rd">54</span> Ytri Tunga <span class="rd">54</span> Búðakirkja <span class="rd">574</span> Arnarstapi <span class="rd">574</span> Djúpalónssandur <span class="rd">574</span> Hellissandur</div>
+      <p>Die Halbinsel heißt „Island in Miniatur": Gletscher, Vulkankrater, Basaltsäulen, Robben und schwarze Strände auf einer Strecke. Bei <strong>Ytri Tunga</strong> liegen fast immer Seehunde auf den Felsen. <strong>Búðakirkja</strong> ist eine winzige, komplett schwarz geteerte Holzkirche allein im Lavafeld. Bei <strong>Arnarstapi</strong> hat das Meer Felsentore und Klippen aus der Küste geschnitten.</p>
+      <p><strong>Djúpalónssandur</strong> ist der schwarze Strand für Alva und Flora. Dort liegen noch die rostigen Trümmer des britischen Trawlers <em>Epine GY7</em>, der 1948 auf Grund lief und heute als Denkmal liegen bleibt. Und vier alte Kraftsteine der Fischer: der leichteste heißt <em>Amlóði</em>, „Schwächling", 23 Kilo — der schwerste <em>Fullsterkur</em>, „Vollstark", 154 Kilo. Wer damals aufs Boot wollte, musste mindestens den dritten heben.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wild_Iceland_(Unsplash).jpg?width=900" alt="Küste auf Snæfellsnes" loading="lazy"><figcaption>Snæfellsnes-Küste</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_horse.jpg?width=900" alt="Islandpferd" loading="lazy"><figcaption>Islandpferde am Weg</figcaption></figure>
+      </div>
+      <ul class="stops">
+        <li><b>Gerðuberg</b>Eine 500 Meter lange Wand aus perfekt sechseckigen Basaltsäulen, direkt an der Straße. Kurzer Halt, großer Effekt.</li>
+        <li><b>Snæfellsjökull</b>Der Gletschervulkan am Ende der Halbinsel — bei Jules Verne der Eingang zum Mittelpunkt der Erde.</li>
+      </ul>
+      <div class="sleep"><b>Übernachtung</b>Hellissandur oder Ólafsvík</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">03</div><div class="date">So 28.3. · Ostern</div><div class="km"><b class="mono">250 km</b>3 h 30</div></div>
+    <div class="dbody">
+      <h3>Kirkjufell, Lavawasserfälle und ein Bad an der heißesten Quelle Europas</h3>
+      <div class="route">Hellissandur <span class="rd">54</span> Kirkjufell <span class="rd">54</span> <span class="rd">1</span> <span class="rd">518</span> Hraunfossar <span class="rd">518</span> Krauma <span class="rd">50</span> <span class="rd">36</span> Laugarvatn</div>
+      <p><strong>Kirkjufell</strong> ist der meistfotografierte Berg Islands, spitz wie eine Pfeilspitze, 463 Meter hoch, allein am Fjord. Besteigen ist im Winter verboten — wir bleiben unten bei <strong>Kirkjufellsfoss</strong>, dem kleinen dreistufigen Wasserfall, der genau davor liegt.</p>
+      <p>Dann quer ins Landesinnere zu <strong>Hraunfossar</strong>: Dort sickert das Wasser nicht über eine Kante, sondern auf hunderte Metern Breite direkt aus einem Lavafeld heraus und fällt in tausend kleinen Fäden in den Fluss. Direkt daneben rauscht <strong>Barnafoss</strong> durch eine enge Schlucht. Zum Abschluss <strong>Deildartunguhver</strong> — die ergiebigste Heißwasserquelle Europas, 180 Liter kochendes Wasser pro Sekunde — und gleich daneben die <strong>Krauma-Bäder</strong>, wo genau dieses Wasser mit Gletscherwasser auf Badetemperatur gemischt wird.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_one_and_only_Kirkjufellfoss_(Unsplash).jpg?width=900" alt="Kirkjufellsfoss vor dem Berg Kirkjufell" loading="lazy"><figcaption>Kirkjufellsfoss</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kirkjufell,_Iceland_(Unsplash_LoKG7kKx7Zc).jpg?width=900" alt="Kirkjufell" loading="lazy"><figcaption>Kirkjufell · 463 m</figcaption></figure>
+      </div>
+      <ul class="stops">
+        <li><b>Polarlicht</b>Kirkjufell ist einer der besten Aussichtspunkte des Landes: kaum Lichtverschmutzung, freier Blick nach Norden. Wenn der Himmel morgens klar ist, lohnt es sich, hier länger zu bleiben.</li>
+        <li><b>Ostersonntag</b>In Island ein stiller Feiertag. Öffnungszeiten von Krauma vorher prüfen, Supermärkte können geschlossen sein — Freitag vorher einkaufen.</li>
+      </ul>
+      <div class="sleep"><b>Übernachtung</b>Laugarvatn oder Reykholt · Farmstay</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">04</div><div class="date">Mo 29.3.</div><div class="km"><b class="mono">200 km</b>3 h</div></div>
+    <div class="dbody">
+      <h3>Kontinentalspalte, Geysir, Goldener Wasserfall</h3>
+      <div class="route">Laugarvatn <span class="rd">36</span> Þingvellir <span class="rd">36</span> <span class="rd">35</span> Geysir · Gullfoss <span class="rd">30</span> Flúðir <span class="rd">30</span> Hella</div>
+      <p>In <strong>Þingvellir</strong> läuft man buchstäblich zwischen zwei Kontinenten: Hier driften die nordamerikanische und die eurasische Erdplatte auseinander, und im selben Tal wurde ab dem Jahr 930 das älteste Parlament der Welt abgehalten. Beides an einem Ort, das gibt es sonst nirgends.</p>
+      <p><strong>Strokkur</strong> ist der Geysir, der wirklich arbeitet: alle sechs bis zehn Minuten schießt er 15 bis 20 Meter hoch, gelegentlich bis 40. Man stellt sich hin und wartet, und irgendwann wölbt sich die Wasseroberfläche zu einer glasklaren blauen Blase — und dann geht es los. Zwei Kilometer weiter stürzt <strong>Gullfoss</strong> über zwei Stufen in eine 70 Meter tiefe Schlucht, im März zur Hälfte in Eis verpackt.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Strokkur_geyser_eruption,_close-up_view.jpg?width=900" alt="Strokkur bricht aus" loading="lazy"><figcaption>Strokkur · alle 6–10 Min.</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Frozen_Gullfoss_(Unsplash_m-NEPqcpQpM).jpg?width=900" alt="Gefrorener Gullfoss" loading="lazy"><figcaption>Gullfoss im Eis</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_-_2017-02-22_-_Gullfoss_-_3684.jpg?width=900" alt="Gullfoss im Schnee" loading="lazy"><figcaption>Hvítá-Schlucht</figcaption></figure>
+      </div>
+      <ul class="stops">
+        <li><b>Secret Lagoon</b>In Flúðir, Islands ältestes Naturschwimmbad von 1891. Kleiner und ursprünglicher als die Blue Lagoon, rundherum blubbert es aus dem Boden. Am späten Nachmittag fast leer.</li>
+        <li><b>Reiten</b><span class="tag g">Optional</span> Rund um Flúðir und Hella gibt es Höfe mit Islandpferden, ein bis zwei Stunden geführt, auch für Anfänger. Der Tölt ist eine Gangart, die es nur bei dieser Rasse gibt — schnell und trotzdem so ruhig, dass man dabei ein Glas halten könnte.</li>
+        <li><b>Essen</b>In Flúðir wachsen Tomaten und Basilikum in geothermal geheizten Gewächshäusern. Tomatensuppe mitten im Schnee.</li>
+      </ul>
+      <div class="sleep"><b>Übernachtung</b>Hella oder Hvolsvöllur</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">05</div><div class="date">Di 30.3.</div><div class="km"><b class="mono">150 km</b>2 h 15</div></div>
+    <div class="dbody">
+      <h3>Der Wasserfall-Tag</h3>
+      <div class="route">Hella <span class="rd">1</span> Seljalandsfoss <span class="rd">1</span> Skógafoss <span class="rd">218</span> Dyrhólaey <span class="rd">215</span> Reynisfjara <span class="rd">1</span> Vík</div>
+      <p>Kurze Strecke, viel Zeit. <strong>Seljalandsfoss</strong> fällt 60 Meter über eine überhängende Kante, und dahinter führt ein Pfad in eine Nische — man sieht den Wasserfall von hinten und wird dabei komplett nass. Im März ist der Weg oft eisig, wir gehen nur mit Grödeln und nur wenn er offen ist. 200 Meter weiter versteckt sich <strong>Gljúfrabúi</strong> hinter einem Felsspalt, durch den man waten muss.</p>
+      <p><strong>Skógafoss</strong> ist der breite, laute Bruder: 25 Meter breit, 60 hoch, mit so viel Sprühnebel, dass an sonnigen Tagen fast immer ein Regenbogen davor steht. Der Legende nach versteckte der erste Wikingersiedler der Gegend, Þrasi Þórólfsson, eine Truhe voll Gold in einer Höhle hinter dem Wasserfall. Gefunden hat man Jahre später nur den Ring am Truhengriff — der hängt heute im Museum von Skógar.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seljalandsfoss_(16467797491).jpg?width=900" alt="Seljalandsfoss" loading="lazy"><figcaption>Seljalandsfoss · 60 m</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_in_winter.jpg?width=900" alt="Skógafoss im Winter" loading="lazy"><figcaption>Skógafoss im Winter</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sk%C3%B3gafoss,_Iceland,_20230501_1447_3978.jpg?width=900" alt="Skógafoss von der Seite" loading="lazy"><figcaption>Skógá-Fluss</figcaption></figure>
+      </div>
+      <div class="warn">
+        <b>Reynisfjara · unsere Regel</b>
+        <p>Der berühmte schwarze Strand mit den Basaltsäulen und den Felsnadeln <em>Reynisdrangar</em> ist schön und gefährlich. Dort treten sogenannte Sneaker Waves auf: einzelne Wellen, die ohne Vorwarnung weit über die normale Wasserlinie hinausschießen. Zwischen 2007 und 2024 kam es zu mindestens zwölf schweren Rettungseinsätzen und fünf Todesfällen, 2025 zu einem weiteren. Im Februar 2026 brach zusätzlich ein Teil der Basaltsäulen ab, mit erheblicher Erosion des Strandes.</p>
+        <p>Es gibt eine Warnampel am Zugang. <strong>Unsere Regel: mindestens 30 Meter Abstand zur Wasserlinie, niemals dem Meer den Rücken zudrehen, die Höhle nur bei grüner Anzeige, und alle vier bleiben zusammen.</strong> Bei Rot fahren wir weiter — vom Aussichtspunkt <strong>Dyrhólaey</strong> aus sieht man die Felsnadeln und das große Felsentor von oben, und der Blick ist dort ehrlich gesagt sogar besser.</p>
+      </div>
+      <div class="sleep"><b>Übernachtung</b>Vík í Mýrdal</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">06</div><div class="date">Mi 31.3.</div><div class="km"><b class="mono">250 km</b>3 h 30</div></div>
+    <div class="dbody">
+      <h3>Zur Gletscherlagune</h3>
+      <div class="route">Vík <span class="rd">1</span> Fjaðrárgljúfur <span class="rd">1</span> Skaftafell <span class="rd">1</span> Jökulsárlón · Diamond Beach <span class="rd">1</span> Hof</div>
+      <p>Heute wird die Landschaft größer. Erst die Schlucht <strong>Fjaðrárgljúfur</strong>, hundert Meter tief und moosgrün. Dann quer über <strong>Eldhraun</strong>, das Lavafeld des Laki-Ausbruchs von 1783 — der größte Lavastrom der neueren Geschichte, heute unter einer dicken Moosdecke. Und rechts schiebt sich der <strong>Vatnajökull</strong> ins Bild, der größte Gletscher Europas, der etwa acht Prozent des Landes bedeckt.</p>
+      <p>Der Höhepunkt ist <strong>Jökulsárlón</strong>: ein Gletschersee, in dem blau-weiße Eisberge treiben, die vom Breiðamerkurjökull abbrechen. Bis zu 190 Meter tief. Direkt gegenüber, auf der anderen Straßenseite, liegt der <strong>Diamond Beach</strong> — dort spült die Brandung die Eisbrocken zurück auf schwarzen Vulkansand. Klares Eis auf schwarzem Grund, und das Licht bricht sich darin. November bis März ist die beste Zeit dafür, weil der Gletscher im Winter mehr kalbt.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ice,_a_lot_of_ice_-_Flickr_-_anieto2k.jpg?width=900" alt="Eisberge in Jökulsárlón" loading="lazy"><figcaption>Jökulsárlón · bis 190 m tief</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_beach_iceland_.jpg?width=900" alt="Eis auf schwarzem Sand" loading="lazy"><figcaption>Diamond Beach</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_Beach_-_Flickr_-_great.escape.photos.jpg?width=900" alt="Gletschereis auf Vulkansand" loading="lazy"><figcaption>Eis auf Vulkansand</figcaption></figure>
+      </div>
+      <ul class="stops">
+        <li><b>Timing</b>Diamond Beach bei Niedrigwasser ansehen, dann liegen die meisten Eisbrocken frei. Gezeiten vorher checken.</li>
+        <li><b>Aufpassen</b>Nicht auf die Eisbrocken klettern und nicht dazwischen stehen — die rollen, wenn eine Welle kommt.</li>
+        <li><b>Polarlicht</b>Die dunkelste Ecke der ganzen Reise. Vom Guesthouse bei Hof reicht ein Schritt vor die Tür.</li>
+      </ul>
+      <div class="sleep"><b>Übernachtung</b>Hof oder Hnappavellir · zwei Nächte</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">07</div><div class="date">Do 1.4.</div><div class="km"><b class="mono">80 km</b>1 h 15</div></div>
+    <div class="dbody">
+      <h3>In den Gletscher hinein</h3>
+      <div class="route">Hof <span class="rd">1</span> Skaftafell / Jökulsárlón · geführte Tour · zurück <span class="rd">1</span> Hof</div>
+      <p><span class="tag">Der Tag, der hängen bleibt</span></p>
+      <p>Kaum Fahrerei, dafür der große Ausflug: <strong>Gletscherwanderung mit Eishöhle</strong>, geführt, mit Steigeisen, Gurt, Helm und Eispickel. Die Touren starten meist am Parkplatz Skaftafell oder Jökulsárlón und dauern drei bis vier Stunden. Ohne Guide geht das nicht, und zwar nicht aus Vorsicht, sondern weil die Gletscherspalten teilweise von Schnee überdeckt sind und man sie nicht sieht.</p>
+      <p>Die Eishöhlen entstehen jeden Winter neu, weil sich der Gletscher bewegt und Schmelzwasser Tunnel gräbt. Deshalb sieht jede Höhle jedes Jahr anders aus, und deshalb geht das nur von etwa November bis März — <strong>Anfang April ist das absolute Ende der Saison</strong>. Das Eis leuchtet blau, weil es unter dem Druck von Jahrhunderten so dicht zusammengepresst wurde, dass keine Luftbläschen mehr darin sind. Nur das blaue Licht kommt durch.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brei%C3%B0amerkursandur_2024_0619.jpg?width=900" alt="Gletscherzunge des Vatnajökull" loading="lazy"><figcaption>Vatnajökull-Gletscherzunge</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ice,_a_lot_of_ice_-_Flickr_-_anieto2k.jpg?width=900" alt="Blaues Gletschereis" loading="lazy"><figcaption>Gletschereis, blau</figcaption></figure>
+      </div>
+      <ul class="stops">
+        <li><b>Mindestalter</b>Bei den meisten Anbietern 8 oder 10 Jahre für die Familientour — mit 12 sind Alva und Flora dabei. Vorab schriftlich bestätigen lassen.</li>
+        <li><b>Ausrüstung</b>Steigeisen, Helm und Gurt stellt der Anbieter. Wir brauchen feste, knöchelhohe Wanderschuhe — keine Turnschuhe, damit wird man abgewiesen.</li>
+        <li><b>Jetzt buchen</b><span class="tag s">Wichtig</span> Eishöhlentouren am Saisonende sind schnell voll. Sobald die Flüge stehen: buchen.</li>
+        <li><b>Plan B</b>Bei Sturm wird abgesagt. Dann: Bootstour auf der Lagune, oder die Gletscherzunge Svínafellsjökull von unten zu Fuß.</li>
+      </ul>
+      <div class="sleep"><b>Übernachtung</b>Hof oder Hnappavellir · zweite Nacht</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">08</div><div class="date">Fr 2.4.</div><div class="km"><b class="mono">280 km</b>3 h 30</div></div>
+    <div class="dbody">
+      <h3>Zurück nach Westen, mit dem, was wir liegen gelassen haben</h3>
+      <div class="route">Hof <span class="rd">1</span> Kirkjubæjarklaustur <span class="rd">1</span> Sólheimasandur <span class="rd">1</span> Hvolsvöllur</div>
+      <p>Dieselbe Straße, andere Richtung, komplett anderes Licht. <strong>Kirkjugólf</strong> bei Kirkjubæjarklaustur ist eine ebene Fläche freigelegter Basaltsäulen, die aussieht wie ein gepflasterter Kirchenboden — ist aber reine Geologie, gehobelt von einem Gletscher.</p>
+      <p>Am <strong>Sólheimasandur</strong> liegt seit 1973 das Wrack eines Flugzeugs der US Navy im schwarzen Sand. Die Besatzung überlebte damals, das Aluminiumskelett blieb liegen. Vom Parkplatz sind es rund vier Kilometer zu Fuß über die flache Sandwüste, hin und zurück etwa 1,5 Stunden — oder man nimmt den Shuttle. Abends dann das <strong>Dorfschwimmbad</strong>: geothermal geheizt, mit Hot Pots und Rutsche, Eintritt ein paar Euro. Genau das machen Isländer nach der Arbeit.</p>
+      <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Skogafoss_winter.jpg?width=900" alt="Skógafoss" loading="lazy"><figcaption>Südküste, zweiter Blick</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Winter_Roads_in_Iceland_(Unsplash).jpg?width=900" alt="Straße durch die Sandebene" loading="lazy"><figcaption>Sólheimasandur</figcaption></figure>
+      </div>
+      <ul class="stops">
+        <li><b>Reiten</b><span class="tag g">Optional</span> Falls es am Montag nicht geklappt hat: rund um Hvolsvöllur gibt es mehrere Höfe. Zwei Stunden reichen.</li>
+        <li><b>Letzte Chance</b>Der Mond ist nur noch zu etwa 13 Prozent beleuchtet. Wenn wir bis hierher keine Polarlichter gesehen haben, ist heute die beste Nacht der Reise.</li>
+      </ul>
+      <div class="sleep"><b>Übernachtung</b>Hvolsvöllur oder Selfoss</div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="spine"><div class="num mono">09</div><div class="date">Sa 3.4.</div><div class="km"><b class="mono">150 km</b>1 h 50</div></div>
+    <div class="dbody">
+      <h3>Ein letztes Mal heißes Wasser, dann nach Hause</h3>
+      <div class="route">Hvolsvöllur <span class="rd">1</span> Sky Lagoon <span class="rd">41</span> Keflavík · KEF</div>
+      <p>Wenn der Flug nicht zu früh geht, passt die <strong>Sky Lagoon</strong> bei Reykjavík noch dazwischen: ein Infinity-Becken mit Blick über den Atlantik, dazu das siebenstufige Ritual mit Kaltbecken, Sauna und Dampfbad. Danach ein Stopp bei Bonus oder Krónan für Skyr und Lakritz-Schokolade — und dann zum Flughafen.</p>
+      <ul class="stops">
+        <li><b>Puffer</b>Mietwagen zwei Stunden vor Abflug zurückgeben, vorher volltanken. Direkt am Flughafen ist Sprit teurer.</li>
+        <li><b>Wind</b>Autotüren in Island nie ohne Festhalten öffnen. Der Wind reißt sie aus dem Scharnier, und genau das ist der häufigste Mietwagenschaden des Landes.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<section id="praktisch" class="wrap" style="padding-top:24px">
+  <div class="reveal">
+    <div class="sec-label">Praktisches</div>
+    <h2 class="big">Was wir wissen müssen</h2>
+  </div>
+  <table class="facts reveal">
+    <tr><th>Reisezeitraum</th><td>Karfreitag 26. März bis Samstag 3. April 2027, neun Tage. Liegt in den hessischen Osterferien (22.3.–2.4.); Karfreitag ist der 26.3., Ostersonntag der 28.3., Ostermontag der 29.3.</td></tr>
+    <tr><th>Flug</th><td>Frankfurt → Keflavík, etwa 4 Stunden, Direktflüge mit Icelandair und ggf. Play. Island bleibt ganzjährig bei UTC. In Deutschland beginnt die Sommerzeit am 28.3., danach sind wir Island zwei Stunden voraus — nennenswerten Jetlag gibt es nicht.</td></tr>
+    <tr><th>Mietwagen</th><td>4×4 mit Winterreifen, in dieser Jahreszeit Pflicht. Zusatzversicherung für Sand-, Asche- und Steinschlagschäden nehmen, das ist in Island üblich und sinnvoll. Zweiten Fahrer eintragen lassen.</td></tr>
+    <tr><th>Wetter</th><td>2 bis 7 Grad, wechselhaft, viel Wind. Ein Tag kann Sonne, Regen und Schnee haben. Straßenlage täglich auf <span class="mono">road.is</span>, Wetter auf <span class="mono">vedur.is</span>, Warnungen auf <span class="mono">safetravel.is</span>.</td></tr>
+    <tr><th>Tageslicht</th><td>Rund 13 Stunden. Sonnenaufgang gegen 7, Untergang gegen 20 Uhr, danach genug Dunkelheit für Polarlichter.</td></tr>
+    <tr><th>Geld</th><td>Isländische Krone. Kartenzahlung überall, auch an Tankstellen und in Schwimmbädern. Bargeld praktisch nicht nötig.</td></tr>
+    <tr><th>Budget</th><td>Island ist teuer, besonders beim Essen. Mit Selbstverpflegung aus Bonus oder Krónan und Guesthouses statt Hotels bleibt es im solide-mittleren Rahmen. Restaurantessen für vier wird schnell dreistellig.</td></tr>
+    <tr><th>Sofort buchen</th><td>Flüge und Mietwagen früh. Eishöhlentour, sobald die Flüge stehen — die Saison endet Anfang April und die Plätze sind begrenzt. Blue Lagoon und Sky Lagoon brauchen ebenfalls Zeitfenster.</td></tr>
+  </table>
+
+  <div class="cols reveal">
+    <div>
+      <h4>Was mit muss</h4>
+      <ul>
+        <li>Wasser- und winddichte Hardshell-Jacke, für alle vier</li>
+        <li>Regenhose — Seljalandsfoss und Skógafoss machen richtig nass</li>
+        <li>Feste, knöchelhohe Wanderschuhe, Pflicht für die Gletschertour</li>
+        <li>Grödel oder Spikes für die Schuhe, im März überall nützlich</li>
+        <li>Merino-Unterwäsche, Fleece, Mütze, dicke Handschuhe, Buff</li>
+        <li>Badesachen und Handtuch, obenauf im Koffer</li>
+        <li>Powerbank — Kälte frisst Handyakkus</li>
+        <li>Schlafmasken, falls die Vorhänge dünn sind</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Regeln fürs Auto</h4>
+      <ul>
+        <li>Tempo 90 auf Asphalt, 80 auf Schotter, wird streng kontrolliert</li>
+        <li>Licht immer an, rund um die Uhr</li>
+        <li>Nie am Straßenrand für Fotos halten, nur in Parkbuchten</li>
+        <li>Türen bei Wind festhalten</li>
+        <li>Einspurige Brücken: wer zuerst da ist, fährt zuerst</li>
+        <li>Tanken, wenn der Tank halb leer ist, nicht wenn er fast leer ist</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Was schiefgehen kann</h4>
+      <ul>
+        <li>Sturmwarnung: Straßen werden gesperrt, dann bleiben wir, wo wir sind. Kein Programmpunkt ist das wert.</li>
+        <li>Eishöhlentour fällt aus: Bootstour oder Gletscherzunge von unten.</li>
+        <li>Keine Polarlichter: kann passieren, ist Glückssache. Der Rest der Reise steht trotzdem.</li>
+        <li>Weg hinter Seljalandsfoss wegen Eis gesperrt: dann eben von vorne, ist auch spektakulär.</li>
+        <li>Ostersonntag: Läden und Bäder teils geschlossen, Öffnungszeiten vorher prüfen.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Neun Tage.<br>Fünfmal <em>heißes Wasser</em>.<br>Ein Gletscher von innen.</h2>
+    <p>Und irgendwann steht man um halb elf abends auf einem Schotterparkplatz im Südosten Islands, es ist minus zwei Grad, alle vier schauen nach oben. Vielleicht passiert nichts. Und vielleicht fängt der Himmel an, sich zu bewegen.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="mono" style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;color:var(--ice)">Roadbook · Island · Osterferien 2027</div>
+    <p style="margin:0;max-width:62ch">Alle Entfernungen und Fahrzeiten sind Winterwerte mit Puffer und ohne Fotostopps. Mondphasen sind gerundete Näherungswerte. Öffnungszeiten, Tourpreise und Straßenzustände bitte kurz vor der Reise gegenprüfen — in Island ändert sich beides schnell.</p>
+    <p style="margin:22px 0 0;font-size:.8rem;color:var(--glacier-bright)">Fotos: Wikimedia Commons, verschiedene Autoren, jeweils unter Creative-Commons-Lizenz. Die Bilder werden direkt von Wikimedia geladen.</p>
+  </div>
+</footer>
+
+<script>
+// scroll progress
+const bar=document.getElementById('bar');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  bar.style.width=p+'%';
+},{passive:true});
+
+// reveal on scroll
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+
+// broken image fallback
+document.querySelectorAll('img').forEach(img=>{
+  img.addEventListener('error',()=>{
+    const f=img.closest('figure');
+    if(f)f.style.display='none';
+  });
+});
+</script>
+</body>
+</html>
