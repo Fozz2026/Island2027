@@ -104,8 +104,8 @@ h2.big{font-size:clamp(1.9rem,4.8vw,3.2rem);letter-spacing:-.028em;max-width:24c
 .lede{font-size:1.28rem;line-height:1.55;max-width:62ch;margin-top:26px}
 
 /* pitch */
-.pitch{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;margin-top:56px;background:var(--hair)}
-.pitch div{background:var(--paper);padding:28px 26px}
+.pitch{display:flex;flex-wrap:wrap;gap:1px;margin-top:56px;background:var(--hair)}
+.pitch div{background:var(--paper);padding:28px 26px;flex:1 1 230px;min-width:230px}
 .pitch h4{font-size:1.16rem;margin-bottom:10px}
 .pitch p{margin:0;font-size:.94rem;color:var(--basalt-soft)}
 .who{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--lava);display:block;margin-bottom:15px}
@@ -335,7 +335,7 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       </a>
       <a class="hp" href="https://www.krauma.is/en" target="_blank" rel="noopener">
         <div class="steam panel"><b>36–40</b><i>°C · sechs Becken</i></div>
-        <div class="in"><span class="n">Tag 3 · So 28.3.</span><h4>Krauma</h4><p>Fünf warme Becken und ein Kaltbecken mit 5 °C. Das 100 °C heiße Quellwasser aus Deildartunguhver wird mit Gletscherwasser gemischt, ganz ohne Chemie. Täglich 11–21 Uhr.</p><span class="go">krauma.is &rarr;</span></div>
+        <div class="in"><span class="n">Tag 4 · Mo 29.3.</span><h4>Krauma</h4><p>Fünf warme Becken und ein Kaltbecken mit 5 °C. Das 100 °C heiße Quellwasser aus Deildartunguhver wird mit Gletscherwasser gemischt, ganz ohne Chemie. Täglich 11–21 Uhr.</p><span class="go">krauma.is &rarr;</span></div>
       </a>
       <a class="hp" href="https://secretlagoon.is/booking/" target="_blank" rel="noopener">
         <div class="steam panel"><b>1891</b><i>Islands ältestes Bad</i></div>
@@ -388,20 +388,20 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
       <p>Dazu kommt: In Island ist die Straße nicht der Weg zum Ziel, sie <em>ist</em> das Ziel. Links Gletscher, rechts Wasserfälle, dazwischen Islandpferde am Zaun. Wir halten alle zwanzig Minuten sowieso an.</p>
       <div class="anchor">
         <div class="arow"><em>Königstein → Hooksiel</em><u><i class="hot" style="width:100%"></i></u><s class="mono">520 km · 5 h 15</s></div>
-        <div class="arow"><em>Längster Islandtag</em><u><i style="width:54%"></i></u><s class="mono">280 km · 3 h 30</s></div>
+        <div class="arow"><em>Längster Islandtag</em><u><i style="width:71%"></i></u><s class="mono">260 km · 3 h 45</s></div>
         <div class="arow"><em>Normaler Islandtag</em><u><i style="width:37%"></i></u><s class="mono">190 km · 2 h 40</s></div>
       </div>
       <div class="distgrid">
         <div><span>Pro Tag</span><b class="mono">ø 190 km</b><i>gut ein Drittel Hooksiel</i></div>
         <div><span>Am Steuer</span><b class="mono">ø 2 h 40</b><i>der Rest ist draußen</i></div>
-        <div><span>Längster Tag</span><b class="mono">280 km</b><i>halb so weit wie Hooksiel</i></div>
+        <div><span>Längster Tag</span><b class="mono">3 h 45</b><i>260 km, Golden Circle</i></div>
         <div><span>Kürzester Tag</span><b class="mono">80 km</b><i>Gletschertag, fast kein Auto</i></div>
       </div>
       <div class="bars">
         <div class="barrow"><em>Tag 1 · Fr</em><u><i style="width:24%"></i></u><s>2 h 10</s></div>
         <div class="barrow"><em>Tag 2 · Sa</em><u><i style="width:34%"></i></u><s>3 h 00</s></div>
-        <div class="barrow"><em>Tag 3 · So</em><u><i style="width:40%"></i></u><s>3 h 30</s></div>
-        <div class="barrow"><em>Tag 4 · Mo</em><u><i style="width:34%"></i></u><s>3 h 00</s></div>
+        <div class="barrow"><em>Tag 3 · So</em><u><i style="width:25%"></i></u><s>2 h 15</s></div>
+        <div class="barrow"><em>Tag 4 · Mo</em><u><i style="width:43%"></i></u><s>3 h 45</s></div>
         <div class="barrow"><em>Tag 5 · Di</em><u><i style="width:25%"></i></u><s>2 h 15</s></div>
         <div class="barrow"><em>Tag 6 · Mi</em><u><i style="width:40%"></i></u><s>3 h 30</s></div>
         <div class="barrow"><em>Tag 7 · Do</em><u><i class="hot" style="width:14%"></i></u><s>1 h 15</s></div>
@@ -465,48 +465,50 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
   </article>
 
   <article class="day">
-    <div class="spine"><div class="num mono">03</div><div class="date">So 28.3. · Ostern</div><div class="km"><b class="mono">250 km</b>3 h 30</div></div>
+    <div class="spine"><div class="num mono">03</div><div class="date">So 28.3. · Ostern</div><div class="km"><b class="mono">150 km</b>2 h 15</div></div>
     <div class="dbody">
-      <h3>Kirkjufell, Lavawasserfälle und ein Bad an der heißesten Quelle Europas</h3>
-      <div class="route">Hellissandur <span class="rd">54</span> Kirkjufell <span class="rd">54</span> <span class="rd">1</span> <span class="rd">518</span> Hraunfossar <span class="rd">518</span> Krauma <span class="rd">50</span> <span class="rd">36</span> Laugarvatn</div>
-      <p><strong>Kirkjufell</strong> ist der meistfotografierte Berg Islands, spitz wie eine Pfeilspitze, 463 Meter hoch, allein am Fjord. Besteigen ist im Winter verboten — wir bleiben unten bei <strong>Kirkjufellsfoss</strong>, dem kleinen dreistufigen Wasserfall, der genau davor liegt.</p>
+      <h3>Raus aufs Wasser: Orcas vor Kirkjufell</h3>
+      <p><span class="tag" style="border-color:var(--ice);color:var(--ice)">Der Tag mit der offenen Frage</span></p>
+      <div class="route">Hellissandur <span class="rd">574</span> Grundarfjörður · Whale Watching <span class="rd">54</span> Kirkjufell <span class="rd">54</span> <span class="rd">1</span> Reykholt</div>
+      <p>Heute fahren wir bewusst wenig — der Tag gehört dem Wasser. <strong>Snæfellsnes ist die einzige Region Islands mit regelmäßigen Orca-Sichtungen:</strong> Die Tiere folgen Heringsschwärmen in den Breiðafjörður, direkt vor der Küste hier, und März/April gelten als die zuverlässigste Zeit im ganzen Jahr dafür. Von Grundarfjörður oder Ólafsvík — je nachdem, welcher Hafen zu dem Zeitpunkt Saison hat — fahren zwei- bis dreieinhalbstündige Touren raus in den Fjord, auf der Suche nach Orcas, manchmal auch Pottwalen und Delfinen.</p>
       <div class="warn" style="border-left-color:var(--ice)">
-        <b style="color:var(--ice)">Orcas vor Grundarfjörður · eine Chance, kein Versprechen</b>
-        <p>Snæfellsnes ist die einzige Region Islands mit regelmäßigen Orca-Sichtungen — die Tiere folgen Heringsschwärmen in den Breiðafjörður, direkt vor der Küste hier. März und April gelten als die zuverlässigste Zeit im ganzen Jahr dafür. Von Grundarfjörður oder Ólafsvík (je nachdem, welcher Hafen zu dem Zeitpunkt Saison hat) fahren zwei- bis dreieinhalbstündige Touren raus in den Fjord.</p>
-        <p>Genau wie bei den Polarlichtern gilt: Wildtiere lassen sich nicht buchen. Wenn wir vormittags Zeit einplanen und es klappt, ist es ein Erlebnis, das Alva und Flora nie vergessen. Wenn nicht, war es trotzdem eine Bootsfahrt vor Kirkjufell mit Gletscherblick. Rechtzeitig vor der Reise prüfen, welcher Hafen aktiv ist und Tour buchen.</p>
+        <b style="color:var(--ice)">Chance, kein Versprechen</b>
+        <p>Genau wie bei den Polarlichtern gilt: Wildtiere lassen sich nicht buchen. Wenn es klappt, ist es ein Erlebnis, das Alva und Flora nie vergessen. Wenn nicht, war es trotzdem eine Bootsfahrt durch den Fjord mit Blick auf Kirkjufell und den Snæfellsjökull-Gletscher — auch das ist kein schlechter Vormittag.</p>
       </div>
-      <p>Dann quer ins Landesinnere zu <strong>Hraunfossar</strong>: Dort sickert das Wasser nicht über eine Kante, sondern auf hunderte Metern Breite direkt aus einem Lavafeld heraus und fällt in tausend kleinen Fäden in den Fluss. Direkt daneben rauscht <strong>Barnafoss</strong> durch eine enge Schlucht. Zum Abschluss <strong>Deildartunguhver</strong> — die ergiebigste Heißwasserquelle Europas, 180 Liter kochendes Wasser pro Sekunde — und gleich daneben die <strong>Krauma-Bäder</strong>, wo genau dieses Wasser mit Gletscherwasser auf Badetemperatur gemischt wird.</p>
+      <p>Nach der Tour ist <strong>Kirkjufell</strong> nur eine kurze Fahrt entfernt: der meistfotografierte Berg Islands, spitz wie eine Pfeilspitze, 463 Meter hoch, allein am Fjord. Besteigen ist im Winter verboten — wir bleiben unten bei <strong>Kirkjufellsfoss</strong>, dem kleinen dreistufigen Wasserfall, der genau davor liegt. Danach eine entspannte Fahrt ins Landesinnere nach Reykholt, mit viel Zeit im Gepäck — morgen wird länger gefahren, heute nicht.</p>
       <div class="shots">
         <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kirkjufell,_Iceland_(Unsplash_LoKG7kKx7Zc).jpg?width=640" alt="Berg Kirkjufell" loading="lazy"><figcaption>Kirkjufell · 463 m</figcaption></figure>
         <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_one_and_only_Kirkjufellfoss_(Unsplash).jpg?width=640" alt="Wasserfall Kirkjufellsfoss" loading="lazy"><figcaption>Kirkjufellsfoss</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hraunfossar,_Iceland,_20240715_0841_0744.jpg?width=640" alt="Hraunfossar sickert aus dem Lavafeld" loading="lazy"><figcaption>Hraunfossar</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Islande_cascade_Hraunfossar_face.jpg?width=640" alt="Hraunfossar von vorn" loading="lazy"><figcaption>900 m Lavakante</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Orcinus_orca_NOAA_Photo_Library.jpg?width=640" alt="Orca im offenen Meer" loading="lazy"><figcaption>Orca, wild</figcaption></figure>
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Elding_Whale_Watching_-_Reykjav%C3%ADk_(5866308105).jpg?width=640" alt="Whale-Watching-Boot in Island" loading="lazy"><figcaption>Whale-Watching-Boot</figcaption></figure>
       </div>
       <ul class="stops">
-        <li><b>Polarlicht</b>Kirkjufell ist einer der besten Aussichtspunkte des Landes: kaum Lichtverschmutzung, freier Blick nach Norden. Wenn der Himmel morgens klar ist, lohnt es sich, hier länger zu bleiben.</li>
-        <li><b>Ostersonntag</b>In Island ein stiller Feiertag. Öffnungszeiten von Krauma vorher prüfen, Supermärkte können geschlossen sein — Freitag vorher einkaufen.</li>
+        <li><b>Vor der Tour</b>Mindestens 30 Minuten vor Abfahrt am Hafen sein. Warme Kleidung in Schichten — auf dem Wasser ist es kälter als an Land — und vorsorglich Reisetabletten gegen Seekrankheit einpacken.</li>
+        <li><b>Für Alva und Flora</b>Die meisten Anbieter haben keine Mindestaltersgrenze, aber zwei bis dreieinhalb Stunden auf offenem Wasser sind bei Wellengang auch für Erwachsene fordernd.</li>
+        <li><b>Ostersonntag</b>In Island ein stiller Feiertag — Supermärkte oft geschlossen. Vorräte lieber schon am Karfreitag oder Samstag einkaufen.</li>
       </ul>
-      <div class="sleep"><b>Übernachtung</b>Laugarvatn oder Reykholt · Farmstay</div>
+      <div class="sleep"><b>Übernachtung</b>Reykholt oder Borgarnes · Farmstay</div>
     </div>
   </article>
 
   <article class="day">
-    <div class="spine"><div class="num mono">04</div><div class="date">Mo 29.3.</div><div class="km"><b class="mono">200 km</b>3 h</div></div>
+    <div class="spine"><div class="num mono">04</div><div class="date">Mo 29.3. · Ostern</div><div class="km"><b class="mono">260 km</b>3 h 45</div></div>
     <div class="dbody">
-      <h3>Kontinentalspalte, Geysir, Goldener Wasserfall</h3>
-      <div class="route">Laugarvatn <span class="rd">36</span> Þingvellir <span class="rd">36</span> <span class="rd">35</span> Geysir · Gullfoss <span class="rd">30</span> Flúðir <span class="rd">30</span> Hella</div>
-      <p>In <strong>Þingvellir</strong> läuft man buchstäblich zwischen zwei Kontinenten: Hier driften die nordamerikanische und die eurasische Erdplatte auseinander, und im selben Tal wurde ab dem Jahr 930 das älteste Parlament der Welt abgehalten. Beides an einem Ort, das gibt es sonst nirgends.</p>
-      <p><strong>Strokkur</strong> ist der Geysir, der wirklich arbeitet: alle sechs bis zehn Minuten schießt er 15 bis 20 Meter hoch, gelegentlich bis 40. Man stellt sich hin und wartet, und irgendwann wölbt sich die Wasseroberfläche zu einer glasklaren blauen Blase — und dann geht es los. Zwei Kilometer weiter stürzt <strong>Gullfoss</strong> über zwei Stufen in eine 70 Meter tiefe Schlucht, im März zur Hälfte in Eis verpackt.</p>
+      <h3>Lavawasserfälle, heißestes Quellwasser Europas, Golden Circle</h3>
+      <div class="route">Reykholt <span class="rd">518</span> Hraunfossar <span class="rd">518</span> Krauma <span class="rd">50</span> <span class="rd">36</span> Þingvellir <span class="rd">36</span> <span class="rd">35</span> Geysir · Gullfoss <span class="rd">35</span> <span class="rd">30</span> Secret Lagoon · Flúðir <span class="rd">30</span> Hella</div>
+      <p>Der längste Tag der Reise, aber mit vier ganz unterschiedlichen Stopps. Gleich am Morgen <strong>Hraunfossar</strong>: Dort sickert das Wasser nicht über eine Kante, sondern auf hunderte Metern Breite direkt aus einem Lavafeld heraus und fällt in tausend kleinen Fäden in den Fluss. Direkt daneben rauscht <strong>Barnafoss</strong> durch eine enge Schlucht. Zum Aufwärmen <strong>Deildartunguhver</strong> — die ergiebigste Heißwasserquelle Europas, 180 Liter kochendes Wasser pro Sekunde — und gleich daneben die <strong>Krauma-Bäder</strong>, wo genau dieses Wasser mit Gletscherwasser auf Badetemperatur gemischt wird. Heute, am Ostermontag, mit normalen Öffnungszeiten — anders als der Ostersonntag gestern.</p>
+      <p>Dann weiter zum <strong>Golden Circle</strong>: In <strong>Þingvellir</strong> läuft man buchstäblich zwischen zwei Kontinenten, hier driften die nordamerikanische und die eurasische Erdplatte auseinander, und im selben Tal wurde ab dem Jahr 930 das älteste Parlament der Welt abgehalten. <strong>Strokkur</strong> ist der Geysir, der wirklich arbeitet: alle sechs bis zehn Minuten schießt er 15 bis 20 Meter hoch. Zwei Kilometer weiter stürzt <strong>Gullfoss</strong> über zwei Stufen in eine 70 Meter tiefe Schlucht, im März zur Hälfte in Eis verpackt.</p>
       <div class="shots">
+        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hraunfossar,_Iceland,_20240715_0841_0744.jpg?width=640" alt="Hraunfossar sickert aus dem Lavafeld" loading="lazy"><figcaption>Hraunfossar</figcaption></figure>
         <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Almannagj%C3%A1,_%C3%9Eingvellir_National_Park_(Iceland).jpg?width=640" alt="Kontinentalspalte Almannagjá" loading="lazy"><figcaption>Almannagjá · Þingvellir</figcaption></figure>
         <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Strokkur_geyser_eruption,_close-up_view.jpg?width=640" alt="Geysir Strokkur bricht aus" loading="lazy"><figcaption>Strokkur</figcaption></figure>
         <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Frozen_Gullfoss_(Unsplash_m-NEPqcpQpM).jpg?width=640" alt="Gefrorener Gullfoss" loading="lazy"><figcaption>Gullfoss im Eis</figcaption></figure>
-        <figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iceland_horse.jpg?width=640" alt="Islandpferd" loading="lazy"><figcaption>Islandpferde · Reiten</figcaption></figure>
       </div>
       <ul class="stops">
         <li><b>Secret Lagoon</b>In Flúðir, Islands ältestes Naturschwimmbad von 1891. Kleiner und ursprünglicher als die Blue Lagoon, rundherum blubbert es aus dem Boden. Am späten Nachmittag fast leer.</li>
         <li><b>Reiten</b><span class="tag g">Optional</span> Rund um Flúðir und Hella gibt es Höfe mit Islandpferden, ein bis zwei Stunden geführt, auch für Anfänger. Der Tölt ist eine Gangart, die es nur bei dieser Rasse gibt — schnell und trotzdem so ruhig, dass man dabei ein Glas halten könnte.</li>
         <li><b>Essen</b>In Flúðir wachsen Tomaten und Basilikum in geothermal geheizten Gewächshäusern. Tomatensuppe mitten im Schnee.</li>
+        <li><b>Langer Tag</b>Vier Stopps vor dem Mittag zu schaffen ist ambitioniert — wer merkt, dass es zu viel wird, lässt Þingvellir kürzer ausfallen. Gullfoss und Strokkur sind die Pflichttermine.</li>
       </ul>
       <div class="sleep"><b>Übernachtung</b>Hella oder Hvolsvöllur</div>
     </div>
@@ -662,14 +664,14 @@ footer{background:#0D1013;color:var(--glacier-deep);padding:52px 0;font-size:.86
             <li><a href="https://www.west.is/en/place/kirkjufell-mountain" target="_blank" rel="noopener">Kirkjufell<span>west.is · offizielle Tourismusseite</span></a></li>
             <li><a href="https://www.re.is/blog/snaefellsnes-peninsula-things-to-see-and-do/" target="_blank" rel="noopener">Halbinsel-Überblick &amp; Robben<span>re.is · inkl. Abstandsregeln</span></a></li>
             <li><a href="https://en.wikipedia.org/wiki/Dj%C3%BApal%C3%B3nssandur" target="_blank" rel="noopener">Djúpalónssandur &amp; die Kraftsteine<span>Wikipedia · Wrack und Steinatök</span></a></li>
-            <li><a href="https://en.wikipedia.org/wiki/Hraunfossar" target="_blank" rel="noopener">Hraunfossar &amp; Barnafoss<span>Wikipedia · 900 m Lavakante</span></a></li>
             <li><a href="https://lakitours.com/" target="_blank" rel="noopener">Láki Tours · Whale Watching<span>lakitours.com · Grundarfjörður/Ólafsvík</span></a></li>
             <li><a href="https://lakitours.com/orcas-in-iceland/" target="_blank" rel="noopener">Orcas in Island · wann &amp; wo<span>lakitours.com · Hintergrund</span></a></li>
           </ul>
         </div>
         <div class="lgroup">
-          <h4>Golden Circle · Tag 4</h4>
+          <h4>Hraunfossar &amp; Golden Circle · Tag 4</h4>
           <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Hraunfossar" target="_blank" rel="noopener">Hraunfossar &amp; Barnafoss<span>Wikipedia · 900 m Lavakante</span></a></li>
             <li><a href="https://www.thingvellir.is/en" target="_blank" rel="noopener">Þingvellir Nationalpark<span>thingvellir.is · UNESCO-Welterbe</span></a></li>
             <li><a href="https://en.wikipedia.org/wiki/Strokkur" target="_blank" rel="noopener">Strokkur<span>Wikipedia · Geysir, alle 6–10 Min.</span></a></li>
             <li><a href="https://commons.wikimedia.org/wiki/Gullfoss" target="_blank" rel="noopener">Gullfoss<span>Wikimedia · Bilder und Geologie</span></a></li>
@@ -824,9 +826,9 @@ const STOPS=[
  {n:'Hellissandur',t:'Übernachtung an der Westspitze',d:'Tag 2',c:[64.914,-23.897],k:'s'},
  {n:'Grundarfjörður · Hafen',t:'Whale Watching, Orcas & Delfine — Chance, kein Versprechen',d:'Tag 3',c:[64.9192,-23.2540],k:'a'},
  {n:'Kirkjufell',t:'463 m. Der meistfotografierte Berg Islands.',d:'Tag 3',c:[64.9410,-23.3057],k:'a'},
- {n:'Hraunfossar',t:'Wasser sickert auf 900 m aus dem Lavafeld',d:'Tag 3',c:[64.702,-20.978],k:'a'},
- {n:'Deildartunguhver & Krauma',t:'Europas ergiebigste Heißwasserquelle, mit Bad',d:'Tag 3',c:[64.663,-21.411],k:'a'},
- {n:'Laugarvatn',t:'Übernachtung am See',d:'Tag 3',c:[64.216,-20.730],k:'s'},
+ {n:'Reykholt',t:'Kurzer Fahrtag nach dem Whale Watching. Übernachtung.',d:'Tag 3',c:[64.665,-21.293],k:'s'},
+ {n:'Hraunfossar',t:'Wasser sickert auf 900 m aus dem Lavafeld',d:'Tag 4',c:[64.702,-20.978],k:'a'},
+ {n:'Deildartunguhver & Krauma',t:'Europas ergiebigste Heißwasserquelle, mit Bad',d:'Tag 4',c:[64.663,-21.411],k:'a'},
  {n:'Þingvellir',t:'Zwei Kontinente und das älteste Parlament der Welt',d:'Tag 4',c:[64.2538,-21.0373],k:'a'},
  {n:'Geysir & Strokkur',t:'Ausbruch alle 6–10 Minuten, 15–20 m hoch',d:'Tag 4',c:[64.3138,-20.2995],k:'a'},
  {n:'Gullfoss',t:'Zwei Stufen in eine 70 m tiefe Schlucht',d:'Tag 4',c:[64.327,-20.121],k:'a'},
